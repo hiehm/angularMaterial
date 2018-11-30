@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sideNav.toggle()">
+    <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+  </button>
+  <span>MATT</span>
+</mat-toolbar>
+<br />
+<mat-sidenav-container>
+  <!--mode="push" nav會把底層畫面外推-->
+  <!--mode="over" 預設:nav會覆蓋在底層畫面之上-->
+  <!--mode="side" nav會把底層畫面外推無灰底設定-->
+  <!--disableClose 此屬性讓點擊 ESC 與BackGround取消畫面方式失效-->
+  <!--fixedInViewport="true" 讓nav可以覆蓋於toolbar之上-->
+  <!--fixedTopGap、fixedBottomGap 上下方顯示縮小值-->
+  <mat-sidenav mode="push"  fixedInViewport="true" fixedTopGap="10" fixedBottomGap="10"  disableClose #sideNav>
+    我是左邊選單<br />
+    <button mat-button (click)="sideNav.toggle()" color="warn">關閉選單</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-raised-button color="warn" (click)="sideNav.toggle()">切換左邊選單狀態</button><br />
+    <app-material-element></app-material-element>
+    <!--position設定nav位置-->
+    <mat-sidenav opened="true" mode="side" position="end">
+      <div>我是右邊選單</div>
+    </mat-sidenav>
+  </mat-sidenav-content>
+</mat-sidenav-container>

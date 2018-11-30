@@ -34,6 +34,11 @@
             <mat-icon>web</mat-icon>MaterialElement <!--MatIconModule-->
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-sidenav"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>important_devices</mat-icon>material-sidenav <!--MatSidenavModule-->
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

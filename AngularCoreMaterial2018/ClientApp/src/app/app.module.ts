@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MaterialElementComponent } from './material-element/material-element.component';
+import { MaterialSidenavComponent } from './material-sidenav/material-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialElementComponent } from './material-element/material-element.co
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    MaterialElementComponent
+    MaterialElementComponent,
+    MaterialSidenavComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +33,8 @@ import { MaterialElementComponent } from './material-element/material-element.co
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'material-element', component: MaterialElementComponent }
+      { path: 'material-element', component: MaterialElementComponent },
+      { path: 'material-sidenav', component: MaterialSidenavComponent }
     ]),
     SharematerialModule 
   ],

@@ -1,9 +1,83 @@
-<button mat-raised-button color="primary">Hello World！</button>
-<hr />
 <mat-icon>person</mat-icon><br />
 <mat-icon color="accent">person</mat-icon><br />
 <!--自訂Icons svgIcon="Namespace:IconName"-->
 <mat-icon svgIcon="custom-svg:templateSvg" style="height:50px;width:50px;"></mat-icon><br />
 <!--使用fontawesome-->
 <mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up"></mat-icon>
-<mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up" color="primary"></mat-icon>
+<mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up" color="primary"></mat-icon><br />
+<!--Button中包含Icon-->
+<button mat-raised-button color="primary"><mat-icon>thumb_up</mat-icon></button>
+<!--用Icon替代成Button,mat-icon-button-->
+<button mat-icon-button color="accent"><mat-icon>thumb_up</mat-icon></button>
+<!--圓形Icon Button-->
+<button mat-raised-button mat-icon-button color="warn"><mat-icon>thumb_up</mat-icon></button><br />
+<!--mat-fab圓形浮動-->
+<button mat-fab>
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-fab color="primary">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-fab color="accent">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-fab color="warn">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-fab disabled>
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<br />
+<!--mat-mini-fab 縮小中心圓-->
+<button mat-mini-fab>
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-mini-fab color="primary">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-mini-fab color="accent">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-mini-fab color="warn">
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<button mat-mini-fab disabled>
+  <mat-icon>thumb_up</mat-icon>
+</button>
+<hr />
+<h3>群組開關-單選</h3>
+<mat-button-toggle-group #formatAlignGroup="matButtonToggleGroup">
+  <!-- button toogle所代表的值 -->
+  <mat-button-toggle value="left">
+    <mat-icon>format_align_left</mat-icon>
+  </mat-button-toggle>
+  <!-- 預設被選取 -->
+  <mat-button-toggle value="center" checked="true">
+    <mat-icon>format_align_center</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="right">
+    <mat-icon>format_align_right</mat-icon>
+  </mat-button-toggle>
+  <!-- 不允許選擇的button toggle -->
+  <mat-button-toggle value="justify" disabled>
+    <mat-icon>format_align_justify</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+<div>對齊方式為：{{ formatAlignGroup.value }}</div>
+
+<!-- 加上multiple，則裡面的mat-buttong-toggle可以複選 -->
+<!-- 加上vertical="true", 改變排列方式 -->
+<h3>群組開關-複選</h3>
+<mat-button-toggle-group multiple vertical="true">
+  <mat-button-toggle value="bold" #buttonToggleBold>
+    <mat-icon>format_bold</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="italic" checked="true" #buttonToggleItalic>
+    <mat-icon>format_italic</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="underlined" checked="true" #buttonToggleUnderlined>
+    <mat-icon>format_underlined</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+<div>粗體：{{ buttonToggleBold.checked }}、斜體：{{ buttonToggleItalic.checked }}、底線：{{ buttonToggleUnderlined.checked }}</div>
+
