@@ -1,9 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "strictNullChecks": true, //設定參數加入 |Null |undefined
     "outDir": "../out-tsc/app",
-    "baseUrl": "./",
-    "module": "es2015",
+    //"baseUrl": "./",
+    //"module": "es2015",
     "types": []
   },
   "exclude": [
