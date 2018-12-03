@@ -1,12 +1,21 @@
 .demo-app-header {
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
   z-index: 2;
 }
 
+.demo-app-sidenav {
+  position: absolute;
+  z-index: 999;
+}
 /*.demo-app-container,
 .demo-app-sidenav {
   position: absolute;
   padding-top: 64px;
   height: calc(100vh - 64px);
 }*/
+/*Toolbar屬於單行排列
+    使用Flex進行左右按鈕切割*/
+.toolbar-seprator {
+  flex: 1 1 auto;
+}

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatCheckboxModule, MatIconModule,
   MatButtonToggleModule, MatRippleModule, MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule, MatListModule, MatMenuModule
 } from '@angular/material';
 @NgModule({
   declarations: [],
@@ -15,7 +15,9 @@ import {
     MatButtonToggleModule,  //群組Button開關控制
     MatRippleModule,//漣漪效果    
     MatSidenavModule, //介面切割 <mat-sidenav-container> <mat-sidenav> <mat-sidenav-content>
-    MatToolbarModule
+    MatToolbarModule, //ToolBar
+    MatListModule, //List列表
+    MatMenuModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +26,9 @@ import {
     MatButtonToggleModule,
     MatRippleModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class SharematerialModule { }

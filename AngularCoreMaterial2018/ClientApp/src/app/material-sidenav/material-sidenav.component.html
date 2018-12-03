@@ -1,10 +1,26 @@
-
-<mat-toolbar color="primary">
+<!--Toolbar-->
+<mat-toolbar color="primary" class="demo-app-header">
+  <!--Toolbar 左側選單按鈕-->
   <button mat-icon-button (click)="sideNav.toggle()">
     <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
   </button>
   <span>MATT</span>
+  <!--分割空間用 span 加入css 在這之後的都會被推到右邊去 -->
+  <span class="toolbar-seprator"></span>
+  <!--Toolbar 右側圖示按鈕-->
+  <button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger" title="Menu">
+    <mat-icon>message</mat-icon>
+  </button>
+  <mat-menu #messageMenu="matMenu">
+    <button mat-menu-item>最新訊息</button>
+    <button mat-menu-item>訊息設定</button>
+  </mat-menu>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+
 </mat-toolbar>
+
 <br />
 <mat-sidenav-container>
   <!--mode="push" nav會把底層畫面外推-->
@@ -13,15 +29,62 @@
   <!--disableClose 此屬性讓點擊 ESC 與BackGround取消畫面方式失效-->
   <!--fixedInViewport="true" 讓nav可以覆蓋於toolbar之上-->
   <!--fixedTopGap、fixedBottomGap 上下方顯示縮小值-->
-  <mat-sidenav mode="push"  fixedInViewport="true" fixedTopGap="10" fixedBottomGap="10"  disableClose #sideNav>
-    我是左邊選單<br />
+  <mat-sidenav class="demo-app-sidenav" mode="push" fixedInViewport="true" fixedTopGap="0" fixedBottomGap="0" disableClose #sideNav>
+    <mat-nav-list>
+      <!--matSubheader 將List-Item進行分類-->
+      <h3 matSubheader>個人使用</h3>
+      <!--導覽用 List 列表,可搭配<a>使用(無Link底線)-->
+      <a [routerLink]="['/', 'dashboard', 'survey']" mat-list-item>問卷調查</a>
+      <!--mat-list-item,List列表項目元素-->
+      <a [routerLink]="['/', 'dashboard', 'blog']" mat-list-item>部落格</a>
+      <a [routerLink]="['/', 'dashboard', 'inbox']" mat-list-item>收件夾</a>
+      <mat-divider></mat-divider> <!--類似<hr/>效果元素-->
+
+      <h3 matSubheader>其他</h3>
+      <mat-list-item>
+        <!--matListAvatar List列表,顯示圖片用-->
+        <img matListAvatar src="../../assets/images/Ava1.jpeg" />
+        <a [routerLink]="['/']">首頁</a>
+      </mat-list-item>
+      <mat-list-item>
+        <img matListAvatar src="../../assets/images/Ava2.jpeg" />
+        <a [routerLink]="['/']">Google</a>
+      </mat-list-item>
+      <mat-list-item>
+        <img matListAvatar src="../../assets/images/Ava3.jpeg" />
+        <a [routerLink]="['/']">Facebook</a>
+        <!--Icons Button-->
+        <button mat-icon-button><mat-icon>chat</mat-icon></button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 matSubheader>
+        <mat-icon>chat_bubble</mat-icon>新訊息
+      </h3>
+      <mat-list-item *ngIf="optNew.selected">這是新消息</mat-list-item>
+      <mat-list-item *ngIf="optAds.selected">這是廣告消息</mat-list-item>
+
+      <mat-divider></mat-divider>
+      <h3 matSubheader>
+        <mat-icon>settings</mat-icon>訊息設定
+      </h3>
+      <!--mat-selection-list 可選式列表-->
+      <mat-selection-list>
+        <!--mat-list-option 預設右方帶有mat-pseudo-checkbox(Checkbox) 可供點擊-->
+        <mat-list-option [value]="1" selected="true" #optNew>
+          有新訊息時通知我
+        </mat-list-option>
+        <mat-list-option [value]="2" #optAds>顯示廣告訊息</mat-list-option>
+      </mat-selection-list>
+    </mat-nav-list>
+    <!--Table用 List列表-->
+    <!--<mat-list></mat-list>-->
     <button mat-button (click)="sideNav.toggle()" color="warn">關閉選單</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <button mat-raised-button color="warn" (click)="sideNav.toggle()">切換左邊選單狀態</button><br />
     <app-material-element></app-material-element>
     <!--position設定nav位置-->
-    <mat-sidenav opened="true" mode="side" position="end">
+    <mat-sidenav mode="side" opened="true" position="end">
       <div>我是右邊選單</div>
     </mat-sidenav>
   </mat-sidenav-content>
