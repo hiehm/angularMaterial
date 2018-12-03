@@ -1,0 +1,98 @@
+<h3>水平 Stepper</h3>
+<!--mat-horizontal-stepper 水平型態-->
+<mat-horizontal-stepper>
+  <!--mat-step 為stepper項目容器元素,其label屬性為mat-step標題-->
+  <mat-step label="個人資訊">
+    <h4>提供個人資訊</h4>
+    <button color="primary" mat-raised-button matStepperNext>下一步</button>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>
+      <b>詳細問題</b>
+    </ng-template>
+    <h4>主要的問題內容</h4>
+    <!--套用matStepperPrevious、matStepperNext製作上一步&下一步功能-->
+    <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+    <button color="primary" mat-raised-button matStepperNext>下一步</button>
+  </mat-step>
+  <!--設計複雜label樣式-->
+  <mat-step>
+    <!--宣告<ng-template>加入matStepLabel Directive取代mat-step的label屬性-->
+    <ng-template matStepLabel>
+      <a href="#">其他</a>
+    </ng-template>
+    <h4>其他問題</h4>
+    <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+  </mat-step>
+</mat-horizontal-stepper>
+<mat-divider></mat-divider>
+<h3>垂直 Stepper</h3>
+<!--Linear 驗證啟用與停用-->
+<button mat-raised-button color="accent" (click)="isLinear = !isLinear">切換Linear狀態</button>
+<span> Linear Status: {{isLinear}}</span><br />
+<!--mat-vertical-stepper 垂直型態-->
+<!--[linear]啟用Stepper表單驗證true/false-->
+<mat-vertical-stepper [linear]="isLinear">
+  <!--[stepControl]="FromGroup物件"
+      讓step知道要以哪一個表單的valid值,來決定可否下一步-->
+  <mat-step label="個人資訊" [stepControl]="basicFormGroup">
+    <!--[formGroup]="指定FormGroup物件"-->
+    <form [formGroup]="basicFormGroup">
+      <h4>提供個人資訊</h4>
+      <!--mat-form-field驗證器-->
+      <mat-form-field>
+        <input name="name" matInput placeholder="姓名" formControlName="name">
+      </mat-form-field>
+    </form>
+    <button color="primary" mat-raised-button matStepperNext>下一步</button>
+  </mat-step>
+  <mat-step label="詳細問題">
+    <h4>主要的問題內容</h4>
+    <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+    <button color="primary" mat-raised-button matStepperNext>下一步</button>
+  </mat-step>
+  <mat-step label="其他">
+    <h4>其他問題</h4>
+    <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+  </mat-step>
+</mat-vertical-stepper>
+
+<!--單一表單包含所有Step流程-->
+<!--formGroup="主FormGroup物件-->
+<form [formGroup]="surverForm">
+  <mat-vertical-stepper [linear]="isLinear">
+    <!--formGroupName="basicQuestions" 另一種指定子表單方式-->
+    <!--formGroup=surverForm.get('basicQuestions') 取得指定子表單-->
+    <mat-step [formGroup]="surverForm.get('basicQuestions')"
+              [stepControl]="surverForm.get('basicQuestions')" label="個人資訊">
+      <h4>單一表單包含所有Step流程</h4>
+      <mat-form-field>
+        <input name="name" matInput placeholder="姓名" formControlName="name">
+      </mat-form-field><br />
+      <button color="primary" mat-raised-button matStepperNext>下一步</button>
+    </mat-step>
+    <!--取得指定子表單 basicQuestions2-->
+    <!--editable="false"當這個Step過去後,無法再返回-->
+    <!--optional 自訂label標題下方顯示文字-->
+    <mat-step [formGroup]="surverForm.get('basicQuestions2')"
+              [stepControl]="surverForm.get('basicQuestions2')"
+              label="詳細問題" editable="false" optional>
+      <h4>主要的問題內容</h4>
+      <mat-form-field>
+        <input name="email" matInput placeholder="信箱" formControlName="email">
+      </mat-form-field><br />
+      <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+      <button color="primary" mat-raised-button matStepperNext>下一步</button>
+    </mat-step>
+    <!--取得指定子表單 basicQuestions3-->
+    <mat-step [formGroup]="surverForm.get('basicQuestions3')"
+              [stepControl]="surverForm.get('basicQuestions3')" label="其他">
+      <h4>其他問題</h4>
+      <mat-form-field>
+        <input name="other" matInput placeholder="其他" formControlName="other">
+      </mat-form-field><br />
+      <button color="warn" mat-raised-button matStepperPrevious>返回</button>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>
+

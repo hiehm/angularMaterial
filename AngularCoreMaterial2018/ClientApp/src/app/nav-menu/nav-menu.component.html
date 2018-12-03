@@ -28,15 +28,20 @@
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-element"]' class="nav-link" (click)='collapse()'>
             <!--<i class="material-icons">
-            web
-            </i>MaterialElement-->
+      web
+      </i>MaterialElement-->
             <!--HTML Material ICON-->
             <mat-icon>web</mat-icon>MaterialElement <!--MatIconModule-->
           </a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-sidenav"]' class="nav-link" (click)='collapse()'>
-            <mat-icon>important_devices</mat-icon>material-sidenav <!--MatSidenavModule-->
+            <mat-icon>important_devices</mat-icon>Material-sidenav <!--MatSidenavModule-->
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-stepper"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>compare_arrows</mat-icon>Material-stepper <!--MatStepperModule-->
           </a>
         </li>
       </ul>
