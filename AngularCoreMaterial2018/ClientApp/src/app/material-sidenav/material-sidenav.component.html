@@ -8,19 +8,48 @@
   <!--分割空間用 span 加入css 在這之後的都會被推到右邊去 -->
   <span class="toolbar-seprator"></span>
   <!--Toolbar 右側圖示按鈕-->
+  <!--matMenuTriggerFor 典籍觸發選單-->
   <button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger" title="Menu">
     <mat-icon>message</mat-icon>
   </button>
+
+  <!--mat-menu 選單-->
   <mat-menu #messageMenu="matMenu">
-    <button mat-menu-item>最新訊息</button>
-    <button mat-menu-item>訊息設定</button>
+    <button mat-menu-item [matMenuTriggerFor]="SubNews">最新訊息</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item [matMenuTriggerFor]="SubSetting">訊息設定</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>其他</button>
   </mat-menu>
+  <!--News子層選單-指定名稱 SubNews-->
+  <mat-menu #SubNews="matMenu">
+    <button mat-menu-item>Sub最新1</button>
+    <button mat-menu-item>Sub最新2</button>
+    <button mat-menu-item>Sub最新3</button>
+  </mat-menu>
+  <!--Setting子層選單-指定名稱 SubSetting-->
+  <mat-menu #SubSetting="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="SubFooterSetting">Sub設定1</button>
+    <button mat-menu-item>Sub設定2</button>
+    <button mat-menu-item>Sub設定3</button>
+    <button mat-menu-item>Sub設定4</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Sub設定5</button>
+    <button mat-menu-item>Sub設定6</button>
+    <button mat-menu-item>Sub設定7</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Sub設定8</button>
+  </mat-menu>
+  <!--SubSetting子層選單-指定名稱 SubFooterSetting-->
+  <mat-menu #SubFooterSetting="matMenu">
+    <button mat-menu-item>SubFooter設定1</button>
+    <button mat-menu-item>SubFooter設定2</button>
+  </mat-menu>
+  <!--mat-menu 選單-->
   <button mat-icon-button>
     <mat-icon>exit_to_app</mat-icon>
   </button>
-
 </mat-toolbar>
-
 <br />
 <mat-sidenav-container>
   <!--mode="push" nav會把底層畫面外推-->
@@ -81,7 +110,12 @@
     <button mat-button (click)="sideNav.toggle()" color="warn">關閉選單</button>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-raised-button color="warn" (click)="sideNav.toggle()">切換左邊選單狀態</button><br />
+    <button mat-raised-button color="warn" (click)="sideNav.toggle()">切換左邊選單狀態</button>
+    <!--透過click事件開啟menu選單-->
+    <button mat-raised-button (click)="menuTrigger.toggleMenu()" color="primary" title="Menu">
+      開啟右邊Menu選單
+    </button>
+    <br />
     <app-material-element></app-material-element>
     <!--position設定nav位置-->
     <mat-sidenav mode="side" opened="true" position="end">
