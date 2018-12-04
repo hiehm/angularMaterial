@@ -20,8 +20,8 @@ import {
     MatListModule, //List列表
     MatMenuModule, //Menu選單
     MatStepperModule, //Stepper流程控制表單(Wizard)
-    MatFormFieldModule,
-    MatInputModule
+    MatFormFieldModule, //豐富表單元素模組
+    MatInputModule //Input元素
   ],
   exports: [
     MatButtonModule,

@@ -29,7 +29,7 @@
 <h3>垂直 Stepper</h3>
 <!--Linear 驗證啟用與停用-->
 <button mat-raised-button color="accent" (click)="isLinear = !isLinear">切換Linear狀態</button>
-<span> Linear Status: {{isLinear}}</span><br />
+<span> Linear Status: {{isLinear ? '啟用驗證':'關閉驗證'}}</span><br />
 <!--mat-vertical-stepper 垂直型態-->
 <!--[linear]啟用Stepper表單驗證true/false-->
 <mat-vertical-stepper [linear]="isLinear">
@@ -68,6 +68,8 @@
       <h4>單一表單包含所有Step流程</h4>
       <mat-form-field>
         <input name="name" matInput placeholder="姓名" formControlName="name">
+        <mat-hint>輸入一下姓名吧!!</mat-hint>
+        <mat-error>請輸入姓名</mat-error>
       </mat-form-field><br />
       <button color="primary" mat-raised-button matStepperNext>下一步</button>
     </mat-step>

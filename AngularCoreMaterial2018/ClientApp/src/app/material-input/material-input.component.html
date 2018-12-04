@@ -1,0 +1,35 @@
+<form [formGroup]="basicFormGroup">
+  <div>
+    <!--mat-form-field豐富matInput元素-->
+    <mat-form-field>
+      <!--matInput Directive宣告此為Material Input-->
+      <!--placeholder 具有內容提示、上標題動作-->
+      <input type="text" name="nickname" placeholder="暱稱"  formControlName="nickname" matInput required />
+      <!--mat-hint 增加Input下標題-->
+      <mat-hint>輸入你的暱稱吧!!</mat-hint>
+      <!--mat-error 驗證失敗訊息-->
+      <mat-error>請輸入暱稱</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <!--[errorStateMatcher]="自訂驗證類別" - 自行控制驗證錯誤流程狀態-->
+      <!--[errorStateMatcher]="earlyErrorStateMacher" ,宣告providers全域套用,故移除此Attribute-->
+      <!--matTextareaAutoSize 依照使用者字數自動調整欄位大小-->
+      <textarea name="intro_self" placeholder="自我介紹" formControlName="intro_self"
+                matInput matTextareaAutosize required></textarea>
+      <mat-hint>簡單介紹一下你的興趣吧！(10個字)</mat-hint>
+      <!--顯示不同驗證錯誤訊息-->
+      <!--.get('元素名稱').hasError('驗證狀態')-->
+      <mat-error *ngIf="basicFormGroup.get('intro_self').hasError('required')">請記得輸入自我介紹喔！</mat-error>
+      <mat-error *ngIf="basicFormGroup.get('intro_self').hasError('minlength')">輸入10個字</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <mat-form-field>
+      <input name="intro_self" type="date" placeholder="日期" matInput />
+      <mat-hint>今天是幾號呢??</mat-hint>
+    </mat-form-field>
+  </div>
+</form>

@@ -13,6 +13,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MaterialElementComponent } from './material-element/material-element.component';
 import { MaterialSidenavComponent } from './material-sidenav/material-sidenav.component';
 import { MaterialStepperComponent } from './material-stepper/material-stepper.component';
+import { MaterialInputComponent } from './material-input/material-input.component';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,14 @@ import { MaterialStepperComponent } from './material-stepper/material-stepper.co
     FetchDataComponent,
     MaterialElementComponent,
     MaterialSidenavComponent,
-    MaterialStepperComponent
+    MaterialStepperComponent,
+    MaterialInputComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -37,11 +40,14 @@ import { MaterialStepperComponent } from './material-stepper/material-stepper.co
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'material-element', component: MaterialElementComponent },
       { path: 'material-sidenav', component: MaterialSidenavComponent },
-      { path: 'material-stepper', component: MaterialStepperComponent }
+      { path: 'material-stepper', component: MaterialStepperComponent },
+      { path: 'material-input', component: MaterialInputComponent }
     ]),
-    SharematerialModule 
+    SharematerialModule
   ],
-  providers: [],
+  providers: [
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
