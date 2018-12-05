@@ -1,3 +1,20 @@
-div{
-  margin-top:20px;
+div {
+  margin-top: 20px;
+}
+
+  div.content {
+    float: left;
+    margin-left:10px;
+  }
+
+h3 {
+  margin-left: 5px;
+}
+
+.autocomplete-highlight {
+  font-weight: bold;
+  background-color: yellow;
+}
+div.subcontent{
+  margin-top:40px;
 }

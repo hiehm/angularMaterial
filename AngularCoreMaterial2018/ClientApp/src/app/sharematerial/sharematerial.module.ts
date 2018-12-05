@@ -5,8 +5,10 @@ import {
   MatButtonModule, MatCheckboxModule, MatIconModule,
   MatButtonToggleModule, MatRippleModule, MatSidenavModule,
   MatToolbarModule, MatListModule, MatMenuModule,
-  MatStepperModule, MatFormFieldModule, MatInputModule
+  MatStepperModule, MatFormFieldModule, MatInputModule,
+  MatAutocompleteModule, MatDatepickerModule, MatSlideToggleModule
 } from '@angular/material';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -21,7 +23,10 @@ import {
     MatMenuModule, //Menu選單
     MatStepperModule, //Stepper流程控制表單(Wizard)
     MatFormFieldModule, //豐富表單元素模組
-    MatInputModule //Input元素
+    MatInputModule, //Input元素
+    MatAutocompleteModule, //AutoComplete自動完成,
+    MatDatepickerModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -35,7 +40,10 @@ import {
     MatMenuModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatSlideToggleModule
   ]
 })
 export class SharematerialModule { }

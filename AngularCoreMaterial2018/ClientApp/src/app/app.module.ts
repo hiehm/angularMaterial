@@ -14,7 +14,7 @@ import { MaterialElementComponent } from './material-element/material-element.co
 import { MaterialSidenavComponent } from './material-sidenav/material-sidenav.component';
 import { MaterialStepperComponent } from './material-stepper/material-stepper.component';
 import { MaterialInputComponent } from './material-input/material-input.component';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { MaterialDatepickerComponent } from './material-datepicker/material-datepicker.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +26,15 @@ import { ErrorStateMatcher } from '@angular/material/core';
     MaterialElementComponent,
     MaterialSidenavComponent,
     MaterialStepperComponent,
-    MaterialInputComponent
+    MaterialInputComponent,
+    MaterialDatepickerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -41,7 +42,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
       { path: 'material-element', component: MaterialElementComponent },
       { path: 'material-sidenav', component: MaterialSidenavComponent },
       { path: 'material-stepper', component: MaterialStepperComponent },
-      { path: 'material-input', component: MaterialInputComponent }
+      { path: 'material-input', component: MaterialInputComponent },
+      { path: 'material-datepicker', component: MaterialDatepickerComponent }
     ]),
     SharematerialModule
   ],
