@@ -1,3 +1,84 @@
-<p>
-  material-datepicker works!
-</p>
+<form [formGroup]="basicGroupForm">
+  <h2>mat-datePicker</h2>
+  <div class="content">
+    <div>
+      <mat-form-field>
+        <!--[matDatepicker]="mat-datepicker物件" 告訴input要承接的matDatepicker是哪個-->
+        <input [matDatepicker]="birthdayPickerDefault" type="text" name="birthdayDefault" placeholder="預設日期格式" formControlName="birthdayDefault" matInput required />
+        <mat-hint>輸入你生日吧!!</mat-hint>
+        <mat-error>請輸入生日</mat-error>
+        <!--mat-datepicker-toggle 觸發日期選單介面元素-->
+        <!--matSuffix ????-->
+        <mat-datepicker-toggle [for]="birthdayPickerDefault" matSuffix></mat-datepicker-toggle>
+        <!--mat-datepicker 日期選單物件-->
+        <mat-datepicker #birthdayPickerDefault></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [matDatepicker]="birthdayPickerStartAt" type="text" name="birthdayStartAt" placeholder="設定起始日期格式" formControlName="birthdayStartAt" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerStartAt" matSuffix></mat-datepicker-toggle>
+        <!--startView 設定日期起始日期,預設為:month-->
+        <mat-datepicker startView="year" #birthdayPickerStartAt></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [matDatepicker]="birthdayPickerStartDate" type="text" name="birthdayStartDate" placeholder="設定起始時間" formControlName="birthdayStartDate" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerStartDate" matSuffix></mat-datepicker-toggle>
+        <!--[startAt]="year | month" 設定日期起始日期,預設為:month-->
+        <mat-datepicker #birthdayPickerStartDate [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <!--[min]="可選取最小日期" [max]="可選取最大日期"-->
+        <input [min]="minDate" [max]="maxDate" [matDatepicker]="birthdayPickerRange" type="text" name="birthdayRange" placeholder="設定可選取範圍" formControlName="birthdayRange" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerRange" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPickerRange [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <!--[matDatepickerFilter]="過濾方法" 過濾出不可選擇的日期-->
+        <input [matDatepickerFilter]="dayFilter" [matDatepicker]="birthdayPickerFilter" type="text" name="birthdayFilter" placeholder="過濾不可被選擇日期" formControlName="birthdayFilter" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerFilter" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPickerFilter [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="content Subcontent">
+    <div>
+      <mat-form-field>
+        <!--(input)、(change)透過事件取得日期真實變化紀錄-->
+        <input (input)="logInputEvent($event)" (change)="logChangeEvent($event)" [matDatepicker]="birthdayPickerDateEvent" type="text" name="birthdayDateEvent" placeholder="取得真實日期時間事件" formControlName="birthdayDateEvent" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerDateEvent" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPickerDateEvent></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [matDatepicker]="birthdayPickerInputDisabled" type="text" name="birthdayInputDisabled" placeholder="封鎖Input輸入方式" formControlName="birthdayInputDisabled" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker-toggle [for]="birthdayPickerInputDisabled" matSuffix></mat-datepicker-toggle>
+        <!--disabled=false 只允許日期按鈕點擊-->
+        <!--touchUi 日期選擇器為Pop方式顯示-->
+        <mat-datepicker #birthdayPickerInputDisabled disabled="false" touchUi="true"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [matDatepicker]="birthdayPickerCustomOpen" type="text" name="birthdayCustomOpen" placeholder="自訂開啟日期選單方式" formControlName="birthdayCustomOpen" matInput required />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker #birthdayPickerCustomOpen></mat-datepicker>
+      </mat-form-field>
+      <!--datepicker.opened=true 自訂開啟日期事件-->
+      <button (click)="birthdayPickerCustomOpen.opened=true" mat-raised-button mat-mini-fab color="primary">開啟</button>
+    </div>
+  </div>
+</form>

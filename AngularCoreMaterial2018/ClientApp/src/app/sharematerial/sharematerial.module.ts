@@ -6,8 +6,24 @@ import {
   MatButtonToggleModule, MatRippleModule, MatSidenavModule,
   MatToolbarModule, MatListModule, MatMenuModule,
   MatStepperModule, MatFormFieldModule, MatInputModule,
-  MatAutocompleteModule, MatDatepickerModule, MatSlideToggleModule
+  MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule,
+  MatSlideToggleModule,
+  MAT_DATE_LOCALE, //provide 日期語系格式化
+  MAT_DATE_FORMATS //provide 日期顯示格式化
 } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
+
+export const TW_FORMATS = {
+  parse: {
+    dateInput: 'YYYY/MM/DD'
+  },
+  display: {
+    dateInput: 'YYYY/MM/DD',
+    monthYearLabel: 'YYYY MMM',
+    dateA11yLabel: 'YYYY/MM/DD',
+    monthYearA11yLabel: 'YYYY MMM'
+  }
+};
 
 @NgModule({
   declarations: [],
@@ -25,7 +41,9 @@ import {
     MatFormFieldModule, //豐富表單元素模組
     MatInputModule, //Input元素
     MatAutocompleteModule, //AutoComplete自動完成,
-    MatDatepickerModule,
+    MatDatepickerModule, //Datepicker 日期套件
+    MatNativeDateModule, //Datepicker 原生風格模組
+    MatMomentDateModule, //Datepicker 日期格式轉化套件
     MatSlideToggleModule
   ],
   exports: [
@@ -43,7 +61,14 @@ import {
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
     MatSlideToggleModule
+  ],
+  providers: [
+    //moment.js 全域格式化日期語系
+    { provide: MAT_DATE_LOCALE, useValue: 'zh-TW' },
+    { provide: MAT_DATE_FORMATS, useValue: TW_FORMATS }
   ]
 })
 export class SharematerialModule { }

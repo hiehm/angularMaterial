@@ -1,0 +1,9 @@
+div.content{
+  float:left;
+}
+div.Subcontent {
+  margin-left: 50px;
+}
+div.content > div{
+  margin-top:15px;
+}
