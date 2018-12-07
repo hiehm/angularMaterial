@@ -1,0 +1,21 @@
+<form [formGroup]="surverForm">
+  <div class="content" [formGroup]="surverForm.get('checkboxFormGroup')">
+    <h3>mat-checkbox</h3>
+    <div>
+      <div>平時的消費娛樂?</div>
+      <!--[indeterminate] 得知選項為 (全部選取,全部取消)=false /(部分選取)=true-->
+      <mat-checkbox [indeterminate]="indeterminateSelectedPayFor"
+                    (change)="checkAllChange($event)" formControlName="payForAll">全部</mat-checkbox>
+      <mat-checkbox formControlName="book"  (change)="payForChange()" color="primary">書籍</mat-checkbox>
+      <mat-checkbox formControlName="movie" (change)="payForChange()" color="accent">電影</mat-checkbox>
+      <mat-checkbox formControlName="voice" (change)="payForChange()" color="warn">音樂</mat-checkbox>
+      <div>[indeterminate]選取狀態:{{indeterminateSelectedPayFor}}</div>
+    </div>
+  </div>
+  <div class="content subcontent" [formGroup]="surverForm.get('radioFormGroup')">
+    <h3>mat-radio</h3>
+  </div>
+  <div class="content subcontent" [formGroup]="surverForm.get('slidetoggleFormGroup')">
+    <h3>mat-slidetoggle</h3>
+  </div>
+</form>

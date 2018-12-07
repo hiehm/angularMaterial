@@ -1,0 +1,56 @@
+<div>
+  <h2>mat-select</h2>
+  <div class="content">
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="預設型態">
+          <mat-option *ngFor="let item of myList" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="取消特定項目">
+          <!--[value]值為undefined可變回預設狀態-->
+          <mat-option [value]="undefined" selected="selected">無</mat-option>
+          <!--[disabled]="index===項目",取消特定項目選擇權-->
+          <!--let [IndexVariable]=index 取得每一個項目的Index並指派給IndexVariable-->
+          <mat-option [disabled]="myindex===1" *ngFor="let item of myList;let myindex = index" [value]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <!--multiple Directive 多選宣告,此宣告後無法動態修改-->
+        <!--故要做到Multiple動態效果,必須製作兩組-->
+        <!--disableRipple 取消Ripple特效-->
+        <mat-select placeholder="群組化、多選與自訂顯示訊息" *ngIf="isMultiple" #selectInterest multiple disableRipple>
+          <!--mat-select-trigger 顯示自訂訊息-->
+          <mat-select-trigger>共選擇了 {{selectInterest.selected.length}} 項興趣</mat-select-trigger>
+          <mat-option [value]="undefined" selected="selected">無</mat-option>
+          <!--mat-optgroup 設定資料群組,[label]群組標題,[disabled]="封鎖符合index值整群-->
+          <mat-optgroup *ngFor="let items of mySports;let myindex = index" [disabled]="myindex===1" [label]="items.category">
+            <mat-option *ngFor="let item of items.sportName" [value]="item.sportName">
+              {{item}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+        <mat-select placeholder="群組化與多選" *ngIf="!isMultiple">
+          <mat-option [value]="undefined" selected="selected">無</mat-option>
+          <!--mat-optgroup 設定資料群組,[label]群組標題,[disabled]="封鎖符合index值整群-->
+          <mat-optgroup *ngFor="let items of mySports;let myindex = index" [disabled]="myindex===1" [label]="items.category">
+            <mat-option *ngFor="let item of items.sportName" [value]="item.sportName">
+              {{item}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button (click)="isMultiple=!isMultiple" color="primay">多選切換</button>
+      多選狀態: {{isMultiple}}
+    </div>   
+  </div>
+</div>

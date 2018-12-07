@@ -25,6 +25,7 @@ export class MaterialDatepickerComponent implements OnInit {
       birthdayRange: new FormControl('', [Validators.required]),
       birthdayFilter: new FormControl('', [Validators.required]),
       birthdayDateEvent: new FormControl('', [Validators.required]),
+      //預設Input為disabed=true
       birthdayInputDisabled: new FormControl({ value: '', disabled: true }, [Validators.required]),
       birthdayCustomOpen: new FormControl('', [Validators.required])
     });

@@ -28,7 +28,7 @@
         <input [matDatepicker]="birthdayPickerStartDate" type="text" name="birthdayStartDate" placeholder="設定起始時間" formControlName="birthdayStartDate" matInput required />
         <mat-error>請輸入生日</mat-error>
         <mat-datepicker-toggle [for]="birthdayPickerStartDate" matSuffix></mat-datepicker-toggle>
-        <!--[startAt]="year | month" 設定日期起始日期,預設為:month-->
+        <!--[startAt]="year | month" 設定日期起始時間 1999/01/01-->
         <mat-datepicker #birthdayPickerStartDate [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
     </div>
@@ -54,8 +54,8 @@
   <div class="content Subcontent">
     <div>
       <mat-form-field>
-        <!--(input)、(change)透過事件取得日期真實變化紀錄-->
-        <input (input)="logInputEvent($event)" (change)="logChangeEvent($event)" [matDatepicker]="birthdayPickerDateEvent" type="text" name="birthdayDateEvent" placeholder="取得真實日期時間事件" formControlName="birthdayDateEvent" matInput required />
+        <!--(dateInput)、(dateChange)透過事件取得日期真實變化紀錄-->
+        <input (dateInput)="logInputEvent($event)" (dateChange)="logChangeEvent($event)" [matDatepicker]="birthdayPickerDateEvent" type="text" name="birthdayDateEvent" placeholder="取得真實日期時間事件" formControlName="birthdayDateEvent" matInput required />
         <mat-error>請輸入生日</mat-error>
         <mat-datepicker-toggle [for]="birthdayPickerDateEvent" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #birthdayPickerDateEvent></mat-datepicker>

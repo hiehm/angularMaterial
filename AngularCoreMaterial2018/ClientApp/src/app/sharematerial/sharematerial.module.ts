@@ -2,12 +2,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  MatButtonModule, MatCheckboxModule, MatIconModule,
-  MatButtonToggleModule, MatRippleModule, MatSidenavModule,
-  MatToolbarModule, MatListModule, MatMenuModule,
-  MatStepperModule, MatFormFieldModule, MatInputModule,
-  MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule,
-  MatSlideToggleModule,
+  MatButtonModule, MatIconModule, MatButtonToggleModule,
+  MatRippleModule, MatSidenavModule, MatToolbarModule,
+  MatListModule, MatMenuModule, MatStepperModule,
+  MatFormFieldModule, MatInputModule, MatAutocompleteModule,
+  MatDatepickerModule, MatNativeDateModule, MatSelectModule,
+  MatCheckboxModule, MatRadioModule,  MatSlideToggleModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS //provide 日期顯示格式化
 } from '@angular/material';
@@ -29,7 +29,6 @@ export const TW_FORMATS = {
   declarations: [],
   imports: [
     MatButtonModule,
-    MatCheckboxModule,
     MatIconModule, //<mat-icon>IconName</mat-icon>語意化Icons  
     MatButtonToggleModule,  //群組Button開關控制
     MatRippleModule,//漣漪效果    
@@ -44,11 +43,13 @@ export const TW_FORMATS = {
     MatDatepickerModule, //Datepicker 日期套件
     MatNativeDateModule, //Datepicker 原生風格模組
     MatMomentDateModule, //Datepicker 日期格式轉化套件
-    MatSlideToggleModule
+    MatSelectModule, //Select 下拉選單
+    MatCheckboxModule,//CheckBox 
+    MatRadioModule,   //Radio
+    MatSlideToggleModule //Slider 滑動點擊
   ],
   exports: [
     MatButtonModule,
-    MatCheckboxModule,
     MatIconModule,
     MatButtonToggleModule,
     MatRippleModule,
@@ -63,6 +64,9 @@ export const TW_FORMATS = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatMomentDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
     MatSlideToggleModule
   ],
   providers: [

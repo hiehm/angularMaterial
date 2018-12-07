@@ -15,6 +15,9 @@ import { MaterialSidenavComponent } from './material-sidenav/material-sidenav.co
 import { MaterialStepperComponent } from './material-stepper/material-stepper.component';
 import { MaterialInputComponent } from './material-input/material-input.component';
 import { MaterialDatepickerComponent } from './material-datepicker/material-datepicker.component';
+import { MaterialSelectComponent } from './material-select/material-select.component';
+import { MaterialFormfieldComponent } from './material-formfield/material-formfield.component';
+import { MaterialCheckboxRadioSlidetoggleComponent } from './material-checkbox-radio-slidetoggle/material-checkbox-radio-slidetoggle.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MaterialDatepickerComponent } from './material-datepicker/material-date
     MaterialSidenavComponent,
     MaterialStepperComponent,
     MaterialInputComponent,
-    MaterialDatepickerComponent
+    MaterialDatepickerComponent,
+    MaterialSelectComponent,
+    MaterialFormfieldComponent,
+    MaterialCheckboxRadioSlidetoggleComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,12 +49,15 @@ import { MaterialDatepickerComponent } from './material-datepicker/material-date
       { path: 'material-sidenav', component: MaterialSidenavComponent },
       { path: 'material-stepper', component: MaterialStepperComponent },
       { path: 'material-input', component: MaterialInputComponent },
-      { path: 'material-datepicker', component: MaterialDatepickerComponent }
+      { path: 'material-datepicker', component: MaterialDatepickerComponent },
+      { path: 'material-select', component: MaterialSelectComponent },
+      { path: 'material-formfield', component: MaterialFormfieldComponent },
+      { path: 'material-checkbox-radio-slidetoggle', component: MaterialCheckboxRadioSlidetoggleComponent }
     ]),
     SharematerialModule
   ],
   providers: [
-  
+
   ],
   bootstrap: [AppComponent]
 })

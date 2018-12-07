@@ -40,7 +40,7 @@
   .main-nav .navbar li {
     float: none;
     font-size: 15px;
-    margin: 6px;
+    margin: 0px;
   }
   .main-nav .navbar li a {
     padding: 10px 16px;

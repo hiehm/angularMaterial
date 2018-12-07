@@ -1,0 +1,32 @@
+<form [formGroup]="basicFormGroup">
+  <div>
+    <!--floatLabel="auto/always/never 讓placeholder處於何種狀態-->
+    <mat-form-field floatLabel="never">
+      <input type="text" name="name" placeholder="姓名" formControlName="name" required matInput /><br />
+    </mat-form-field>
+  </div>
+  <div>
+    <!--[hideRequiredMarker] 顯示/隱藏requied *符號-->
+    <!--hintLabel 設定下方提示文字,align="start"(位置為開頭且不可修改)-->
+    <mat-form-field [hideRequiredMarker]="true" hintLabel="最多輸入五個字" color="accent">
+      <input type="text" name="nickname" formControlName="nickname" maxlength="5" required matInput /><br />
+      <!--mat-placeholder 自訂placeholder可搭配<mat-icon>使用-->
+      <mat-placeholder>
+        <mat-icon>person</mat-icon>請輸入您的姓名
+      </mat-placeholder>
+      <!--mat-hint align="start/end" 提示文字顯示位置-->
+      <mat-hint align="end">
+        已輸入： {{ basicFormGroup.get('nickname')?.value?.length || 0 }} / 5
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field floatLabel="auto">
+      <input type="text"   name="name" placeholder="請問您平時消費?" matInput />
+      <!--matPrefix Directive 輸入框開頭顯示-->
+      <mat-icon matPrefix>attach_money</mat-icon>
+      <!--matSuffix Directive 輸入框尾部顯示-->
+      <span matSuffix>新台幣</span>
+    </mat-form-field>
+  </div>
+</form>
