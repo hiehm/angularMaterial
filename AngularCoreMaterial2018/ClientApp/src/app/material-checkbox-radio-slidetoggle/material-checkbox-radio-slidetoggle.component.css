@@ -11,3 +11,6 @@ div.subcontent{
 mat-checkbox{
   padding-left:5px;
 }
+mat-slide-toggle{
+  display:block;
+}

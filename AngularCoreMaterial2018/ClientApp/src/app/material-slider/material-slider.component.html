@@ -1,0 +1,24 @@
+<form [formGroup]="surverForm">
+  <div class="content">
+    <h3>mat-slider</h3>
+    <div>
+      <div>選擇喜歡的顏色!!</div>
+      <div>
+        <span>Red</span>
+        <!--thumbLabel Directive 讓指標可以顯示圖像化數值-->
+        <mat-slider formControlName="redSlider" min="0" max="255" step="1" thumbLabel>紅色</mat-slider>
+      </div>
+      <div>
+        <span>green</span>
+        <!--[tickInterval]="刻度" 每多少數值就放一個標誌-->
+        <mat-slider formControlName="greenSlider" min="0" max="255" step="1" thumbLabel [tickInterval]="10">綠色</mat-slider>
+      </div>
+      <div>
+        <span>blue</span>
+        <mat-slider formControlName="blueSlider" min="0" max="255" step="1" thumbLabel>藍色</mat-slider>
+      </div>
+      <div>RGB: ({{ selectedColorRed }}, {{ selectedColorGreen }}, {{ selectedColorBlue }})</div>
+      <div style="width: 50px; height: 50px; border: 1px solid #000" [ngStyle]="{background: selectedColorStyle}"></div>
+    </div>
+  </div>
+</form>

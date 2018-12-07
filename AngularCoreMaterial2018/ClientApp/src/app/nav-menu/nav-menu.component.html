@@ -69,6 +69,11 @@
             <mat-icon>collections</mat-icon>Material-checkbox-radio-slidetoggle <!--MatCheckboxModule,MatRadioModule,MatSlideToggleModule-->
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-slider"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>short_text</mat-icon>Material-slider <!--MatSliderModule-->
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
-import { MatCheckboxChange, MAT_CHECKBOX_CLICK_ACTION } from '@angular/material'; //mat-checkbox event module
+import { MatCheckboxChange, MAT_CHECKBOX_CLICK_ACTION, MatRadioChange } from '@angular/material'; //mat-checkbox event module
 @Component({
   selector: 'app-material-checkbox-radio-slidetoggle',
   templateUrl: './material-checkbox-radio-slidetoggle.component.html',
   styleUrls: ['./material-checkbox-radio-slidetoggle.component.css'],
   providers: [
     //設定mat-checkbox點擊之後的行為,'noop'不做任何動作由(click)設定後續行為
-    { provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'noop' }
+    //{ provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'noop' }
   ]
 })
 export class MaterialCheckboxRadioSlidetoggleComponent implements OnInit {
   surverForm: FormGroup;
   indeterminateSelectedPayFor: boolean;
+  angularRadioValue: string;
+  subscribeAll: boolean;
   constructor() {
     this.surverForm = new FormGroup({
       checkboxFormGroup: new FormGroup({
@@ -22,16 +24,24 @@ export class MaterialCheckboxRadioSlidetoggleComponent implements OnInit {
         voice: new FormControl(false)
       }),
       radioFormGroup: new FormGroup({
-
+        //FormControl(index) 預設選取第N個
+        angularFeelScore: new FormControl(2),
+        angularMaterialScore: new FormControl(4)
       }),
       slidetoggleFormGroup: new FormGroup({
-
+        subscribeAngular: new FormControl(false),
+        subscribeAngularMaterial: new FormControl(false),
+        subscribeYellowBook: new FormControl(false)
       })
     });
   }
   ngOnInit() {
     this._setSelectAllState();
   }
+  angularRadioGroupClick(term:string) {   
+    this.angularRadioValue = term;
+  }
+
   //取得CheckboxChange event
   checkAllChange($event: MatCheckboxChange) {
     this.surverForm!

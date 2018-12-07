@@ -7,9 +7,10 @@ import {
   MatListModule, MatMenuModule, MatStepperModule,
   MatFormFieldModule, MatInputModule, MatAutocompleteModule,
   MatDatepickerModule, MatNativeDateModule, MatSelectModule,
-  MatCheckboxModule, MatRadioModule,  MatSlideToggleModule,
+  MatCheckboxModule, MatRadioModule, MatSlideToggleModule,
+  MatSliderModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
-  MAT_DATE_FORMATS //provide 日期顯示格式化
+  MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
 
@@ -46,7 +47,8 @@ export const TW_FORMATS = {
     MatSelectModule, //Select 下拉選單
     MatCheckboxModule,//CheckBox 
     MatRadioModule,   //Radio
-    MatSlideToggleModule //Slider 滑動點擊
+    MatSlideToggleModule,//SlideToggle 滑動點擊
+    MatSliderModule
   ],
   exports: [
     MatButtonModule,
@@ -67,7 +69,8 @@ export const TW_FORMATS = {
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSliderModule
   ],
   providers: [
     //moment.js 全域格式化日期語系
