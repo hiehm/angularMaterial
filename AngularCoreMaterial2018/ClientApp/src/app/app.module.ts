@@ -22,6 +22,7 @@ import { MaterialSliderComponent } from './material-slider/material-slider.compo
 import { MaterialGridlistComponent } from './material-gridlist/material-gridlist.component';
 import { MaterialProgressComponent } from './material-progress/material-progress.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { MaterialProgressComponent } from './material-progress/material-progress
     MaterialCheckboxRadioSlidetoggleComponent,
     MaterialSliderComponent,
     MaterialGridlistComponent,
-    MaterialProgressComponent
+    MaterialProgressComponent,
+    //AddGetDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -62,7 +64,7 @@ import { MaterialProgressComponent } from './material-progress/material-progress
       { path: 'material-slider', component: MaterialSliderComponent },
       { path: 'material-gridlist', component: MaterialGridlistComponent },
       { path: 'material-progress', component: MaterialProgressComponent }
-    ]),
+    ], { useHash: true, enableTracing: true }),
     SharematerialModule
   ],
   providers: [

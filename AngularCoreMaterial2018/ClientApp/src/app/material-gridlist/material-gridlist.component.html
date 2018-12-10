@@ -19,51 +19,63 @@
       <mat-icon>thumb_up</mat-icon>
     </mat-grid-tile-footer>
   </mat-grid-tile>
-  <mat-grid-tile rowspan="3">
-    <mat-card class="post-tile">
-      <!--mat-card-title-group 將元素群組化-->
-      <mat-card-title-group>
-        <mat-card-title>置頂文章1</mat-card-title>
-        <mat-card-subtitle>2917/01/04</mat-card-subtitle>
-        <!--mat-card-xx-image xx代表圖片縮放模式,sm/md/lg(小中大)-->
-        <img mat-card-sm-image src="https://picsum.photos/300/300/?random" />
-      </mat-card-title-group>
-      <mat-card-content>文章內容1...</mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="paimray">繼續閱讀</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile rowspan="4">
-    <mat-card class="post-tile">
-      <mat-card-title-group>
-        <mat-card-title>置頂文章2</mat-card-title>
-        <mat-card-subtitle>2917/01/04</mat-card-subtitle>
-        <img mat-card-md-image src="https://picsum.photos/300/300/?random" />
-      </mat-card-title-group>
-      <mat-card-content>文章內容2...</mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="paimray">繼續閱讀</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile rowspan="5">
-    <mat-card class="post-tile">
-      <mat-card-title-group>
-        <mat-card-title>置頂文章3</mat-card-title>
-        <mat-card-subtitle>2917/01/04</mat-card-subtitle>
-        <img mat-card-lg-image src="https://picsum.photos/300/300/?random" />
-      </mat-card-title-group>
-      <mat-card-content>文章內容3...</mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="paimray">繼續閱讀</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
+  <!--載入中顯示的進度條-->
+  <ng-template #loading>
+    <mat-grid-tile colspan="3" rowspan="3">
+      <mat-progress-spinner mode="indeterminate" color="pramary"></mat-progress-spinner>
+    </mat-grid-tile>
+  </ng-template>
+  <!--*ngIf 此判斷表示,如果posts$有資料則顯示,否則顯示<ng-template>-->
+  <ng-container *ngIf="posts$; else loading">
+    <mat-grid-tile rowspan="3">
+      <mat-card class="post-tile">
+        <!--mat-card-title-group 將元素群組化-->
+        <mat-card-title-group>
+          <mat-card-title>置頂文章1</mat-card-title>
+          <mat-card-subtitle>2917/01/04</mat-card-subtitle>
+          <!--mat-card-xx-image xx代表圖片縮放模式,sm/md/lg(小中大)-->
+          <img mat-card-sm-image src="https://picsum.photos/300/300/?random" />
+        </mat-card-title-group>
+        <mat-card-content>文章內容1...</mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="paimray">繼續閱讀</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="4">
+      <mat-card class="post-tile">
+        <mat-card-title-group>
+          <mat-card-title>置頂文章2</mat-card-title>
+          <mat-card-subtitle>2917/01/04</mat-card-subtitle>
+          <img mat-card-md-image src="https://picsum.photos/300/300/?random" />
+        </mat-card-title-group>
+        <mat-card-content>文章內容2...</mat-card-content>
+        <mat-card-actions>
+          <button (click)="showDialog()" mat-button color="paimray">繼續閱讀</button>
+        </mat-card-actions>
+        <!--<mat-card-footer>
+          <mat-progress-bar mode="buffer" value="30" bufferValue="60" color="accent"></mat-progress-bar>
+        </mat-card-footer>-->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="5">
+      <mat-card class="post-tile">
+        <mat-card-header>
+          <!--[diameter]="直徑" 設定spinner直徑大小-->
+          <mat-progress-spinner [diameter]="30" mode="indeterminate" color="warn"></mat-progress-spinner>
+        </mat-card-header>
+        <!--[strokeWidth]="寬度" 設定spinner線條寬度-->
+        <mat-card-content>
+          <mat-progress-spinner [strokeWidth]="3" mode="indeterminate"></mat-progress-spinner>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </ng-container>
   <mat-grid-tile *ngFor="let post of posts$ ; let index = index" rowspan="8">
     <!--mat-card 卡片元素,預設置中加入align-self=flex-start改為置頂-->
     <!--[tabindex]=索引值 卡片被focus後,產生不同樣式-->
     <mat-card class="post-tile" [tabindex]="index">
+      <mat-progress-bar mode="query" color="warn"></mat-progress-bar>
       <!--mat-card-header 將元素包覆於card上方-->
       <mat-card-header>
         <mat-card-title>XXX</mat-card-title>
@@ -81,8 +93,9 @@
         <button mat-button color="accent">編輯</button>
       </mat-card-actions>
       <mat-card-footer>
-        Material Is Life (Footer)
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+

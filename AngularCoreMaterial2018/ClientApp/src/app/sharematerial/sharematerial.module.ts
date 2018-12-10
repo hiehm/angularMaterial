@@ -9,12 +9,12 @@ import {
   MatDatepickerModule, MatNativeDateModule, MatSelectModule,
   MatCheckboxModule, MatRadioModule, MatSlideToggleModule,
   MatSliderModule, MatGridListModule, MatCardModule,
-  MatProgressBarModule, MatProgressSpinnerModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
-
+import { AddGetDialogComponent } from '../Dialog/add-get-dialog/add-get-dialog.component';
 export const TW_FORMATS = {
   parse: {
     dateInput: 'YYYY/MM/DD'
@@ -28,7 +28,9 @@ export const TW_FORMATS = {
 };
 
 @NgModule({
-  declarations: [],
+  declarations: [ //宣告component
+    AddGetDialogComponent
+  ],
   imports: [
     MatButtonModule,
     MatIconModule, //<mat-icon>IconName</mat-icon>語意化Icons  
@@ -52,8 +54,9 @@ export const TW_FORMATS = {
     MatSliderModule, //Slider 滑動線條
     MatGridListModule, //GridList 網格排列元素
     MatCardModule, //Card 卡片元素
-    MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressBarModule, //ProgressBar 線性進度條
+    MatProgressSpinnerModule,//ProgressSpinner 迴圈進度條
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -79,12 +82,18 @@ export const TW_FORMATS = {
     MatGridListModule,
     MatCardModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
     //moment.js 全域格式化日期語系
     { provide: MAT_DATE_LOCALE, useValue: 'zh-TW' },
     { provide: MAT_DATE_FORMATS, useValue: TW_FORMATS }
-  ]
+  ],
+  //entryComponents 注入動態產生元件
+  //在component中動態呼叫另一個component時,必須於此註冊
+  entryComponents: [ 
+    AddGetDialogComponent
+  ],
 })
 export class SharematerialModule { }

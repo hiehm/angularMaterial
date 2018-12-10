@@ -23,8 +23,8 @@
         <mat-hint>簡單介紹一下你的興趣吧！(10個字)</mat-hint>
         <!--顯示不同驗證錯誤訊息-->
         <!--.get('元素名稱').hasError('驗證狀態')-->
-        <mat-error *ngIf="basicFormGroup.get('intro_self').hasError('required')">請記得輸入自我介紹喔！</mat-error>
-        <mat-error *ngIf="basicFormGroup.get('intro_self').hasError('minlength')">輸入10個字</mat-error>
+        <mat-error *ngIf="basicFormGroup!.get('intro_self')!.hasError('required')!">請記得輸入自我介紹喔！</mat-error>
+        <mat-error *ngIf="basicFormGroup!.get('intro_self')!.hasError('minlength')!">輸入10個字</mat-error>
       </mat-form-field>
     </div>
     <!--<mat-divider></mat-divider>-->
