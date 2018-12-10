@@ -1,5 +1,6 @@
-<div class='main-nav' ng-show="false">
-  <nav class='navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-column'>
+<div class='main-nav' ng-show="true">
+  <!--navbar-expand-lg remove-->
+  <nav class='navbar navbar-dark bg-dark d-flex flex-column'>
     <div class="navbar-header p-0">
       <a class='navbar-brand' [routerLink]='["/"]'>AngularCoreMaterial2018</a>
       <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
@@ -28,8 +29,8 @@
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-element"]' class="nav-link" (click)='collapse()'>
             <!--<i class="material-icons">
-      web
-      </i>MaterialElement-->
+            web
+            </i>MaterialElement-->
             <!--HTML Material ICON-->
             <mat-icon>web</mat-icon>MaterialElement <!--MatIconModule-->
           </a>
@@ -76,7 +77,12 @@
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-gridlist"]' class="nav-link" (click)='collapse()'>
-            <mat-icon>grid_on</mat-icon>Material-gridlist <!--MatSliderModule-->
+            <mat-icon>grid_on</mat-icon>Material-gridlist <!--MatGridListModule-->
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-progress"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>loop</mat-icon>Material-progress <!--MatProgressBarModule,MatProgressSpinnerModule-->
           </a>
         </li>
       </ul>

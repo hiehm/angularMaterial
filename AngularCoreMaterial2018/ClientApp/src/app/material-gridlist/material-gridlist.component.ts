@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-material-gridlist',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./material-gridlist.component.css']
 })
 export class MaterialGridlistComponent implements OnInit {
-
-  constructor() { }
+  posts$: any[];
+  constructor() {
+  
+  }
 
   ngOnInit() {
+    this.posts$ = ['MATT', 'MARY', 'Ilandy'];
   }
 
 }
