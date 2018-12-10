@@ -74,6 +74,11 @@
             <mat-icon>short_text</mat-icon>Material-slider <!--MatSliderModule-->
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-gridlist"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>grid_on</mat-icon>Material-gridlist <!--MatSliderModule-->
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

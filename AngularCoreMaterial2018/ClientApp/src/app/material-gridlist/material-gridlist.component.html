@@ -1,0 +1,29 @@
+<!--mat-grid-list cols=設定一列共可容納幾欄-->
+<!--rowHeight 設定<mat-grid-tile>高度 4:1=寬與高比例-->
+<!--gutterSize 設定cell之間的間距-->
+<mat-grid-list cols="4" rowHeight="4:1" gutterSize="20px">
+  <!--mat-grid-tile 設定標題、欄位水平與垂直-->
+  <mat-grid-tile style="background: red" colspan="3">
+    Tile 1
+  </mat-grid-tile>
+  <mat-grid-tile style="background: green" rowspan="5">
+    <!--mat-grid-tile-header 設定tile上方區塊內容-->
+    <mat-grid-tile-header>
+      <h3 mat-line>功能清單</h3>
+      <span mat-line>選擇你要的</span>
+      <mat-icon>list</mat-icon>
+    </mat-grid-tile-header>
+    <!--mat-grid-tile-footer 設定tile下方區塊內容-->
+    <mat-grid-tile-footer>
+      <span mat-line>生是IT人</span>
+      <span mat-line>死是IT魂</span>
+      <mat-icon>thumb_up</mat-icon>
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+  <mat-grid-tile style="background: blue" colspan="3" rowspan="3">
+    Tile 3
+  </mat-grid-tile>
+  <mat-grid-tile style="background: yellow" colspan="3">
+    Tile 4
+  </mat-grid-tile>
+</mat-grid-list>

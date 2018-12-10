@@ -11,7 +11,7 @@
       <div>
         <span>green</span>
         <!--[tickInterval]="刻度" 每多少數值就放一個標誌-->
-        <mat-slider formControlName="greenSlider" min="0" max="255" step="1" thumbLabel [tickInterval]="10">綠色</mat-slider>
+        <mat-slider [tickInterval]="10" formControlName="greenSlider" min="0" max="255" step="1" thumbLabel>綠色</mat-slider>
       </div>
       <div>
         <span>blue</span>

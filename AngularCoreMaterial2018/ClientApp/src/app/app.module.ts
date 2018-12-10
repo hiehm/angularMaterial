@@ -19,6 +19,7 @@ import { MaterialSelectComponent } from './material-select/material-select.compo
 import { MaterialFormfieldComponent } from './material-formfield/material-formfield.component';
 import { MaterialCheckboxRadioSlidetoggleComponent } from './material-checkbox-radio-slidetoggle/material-checkbox-radio-slidetoggle.component';
 import { MaterialSliderComponent } from './material-slider/material-slider.component';
+import { MaterialGridlistComponent } from './material-gridlist/material-gridlist.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MaterialSliderComponent } from './material-slider/material-slider.compo
     MaterialSelectComponent,
     MaterialFormfieldComponent,
     MaterialCheckboxRadioSlidetoggleComponent,
-    MaterialSliderComponent
+    MaterialSliderComponent,
+    MaterialGridlistComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -55,7 +57,8 @@ import { MaterialSliderComponent } from './material-slider/material-slider.compo
       { path: 'material-select', component: MaterialSelectComponent },
       { path: 'material-formfield', component: MaterialFormfieldComponent },
       { path: 'material-checkbox-radio-slidetoggle', component: MaterialCheckboxRadioSlidetoggleComponent },
-      { path: 'material-slider', component: MaterialSliderComponent }
+      { path: 'material-slider', component: MaterialSliderComponent },
+      { path: 'material-gridlist', component: MaterialGridlistComponent }
     ]),
     SharematerialModule
   ],
