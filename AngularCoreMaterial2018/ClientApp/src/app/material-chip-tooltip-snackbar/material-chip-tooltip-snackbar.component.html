@@ -1,3 +1,41 @@
-<p>
-  material-chip-tooltip-snackbar works!
-</p>
+<h4>Chip 文章標籤</h4>
+<div class="content">
+  <div>
+    <mat-chip-list>
+      <!--(removed)事件 搭配<mat-icon>的matChipRemove Directive可移除<mat-chip>-->
+      <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)" selected="true" color="primary">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <!--removable="true/false" 指定該物件是否允許刪除-->
+      <mat-chip removable="true" selected="true" color="accent">
+        Material Design
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <!--selected="true/false" 變更選取狀態-->
+      <!--color 在這裡是改變被選取的顏色,未選取的顏色只能調整CSS-->
+      <mat-chip selected="true" color="warn">Angular Material</mat-chip>
+      <!--mat-basic-chip 自訂Chip樣式-->
+      <mat-basic-chip>Basic Chip 自訂Chip樣式</mat-basic-chip>
+    </mat-chip-list>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)" selected="true" color="primary">
+          {{tag}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+      <!--[matChipInputFor] 告知input要搭載的<mat-chip-list>物件為哪個-->
+      <!--[matChipInputAddOnBlur] 是否在Blur後加入-->
+      <!--[matChipInputSeparatorKeyCodes] 當按下指定按鍵時,視為要新增Chip-->
+      <!--(matChipInputTokenEnd)="FuncName" 要加入Chip的邏輯-->
+      <input placeholder="文章標籤"
+             [matChipInputFor]="chipList"
+             [matChipInputAddOnBlur]="true"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             (matChipInputTokenEnd)="addTag($event)" />
+    </mat-form-field>
+  </div>
+</div>
