@@ -21,7 +21,7 @@ import { MaterialCheckboxRadioSlidetoggleComponent } from './material-checkbox-r
 import { MaterialSliderComponent } from './material-slider/material-slider.component';
 import { MaterialGridlistComponent } from './material-gridlist/material-gridlist.component';
 import { MaterialProgressComponent } from './material-progress/material-progress.component';
-
+import { MaterialChipTooltipSnackbarComponent } from './material-chip-tooltip-snackbar/material-chip-tooltip-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { MaterialProgressComponent } from './material-progress/material-progress
     MaterialSliderComponent,
     MaterialGridlistComponent,
     MaterialProgressComponent,
-    //AddGetDialogComponent
+    MaterialChipTooltipSnackbarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -63,8 +63,9 @@ import { MaterialProgressComponent } from './material-progress/material-progress
       { path: 'material-checkbox-radio-slidetoggle', component: MaterialCheckboxRadioSlidetoggleComponent },
       { path: 'material-slider', component: MaterialSliderComponent },
       { path: 'material-gridlist', component: MaterialGridlistComponent },
-      { path: 'material-progress', component: MaterialProgressComponent }
-    ], { useHash: true, enableTracing: true }),
+      { path: 'material-progress', component: MaterialProgressComponent },
+      { path: 'material-chip-tooltip-snackbar', component: MaterialChipTooltipSnackbarComponent }
+    ], { useHash: true, enableTracing: true }), //部屬Azure設定
     SharematerialModule
   ],
   providers: [

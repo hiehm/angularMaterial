@@ -29,8 +29,8 @@
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-element"]' class="nav-link" (click)='collapse()'>
             <!--<i class="material-icons">
-            web
-            </i>MaterialElement-->
+      web
+      </i>MaterialElement-->
             <!--HTML Material ICON-->
             <mat-icon>web</mat-icon>MaterialElement <!--MatIconModule-->
           </a>
@@ -80,11 +80,16 @@
             <mat-icon>grid_on</mat-icon>Material-gridlist <!--MatGridListModule-->
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/material-chip-tooltip-snackbar"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>live_help</mat-icon>Material-chip-tooltip-snackbar <!--MatChipsModule-->
+          </a>
+        </li>
         <!--<li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-        <a [routerLink]='["/material-progress"]' class="nav-link" (click)='collapse()'>
-          <mat-icon>loop</mat-icon>Material-progress <!--MatProgressBarModule,MatProgressSpinnerModule-->
+  <a [routerLink]='["/material-progress"]' class="nav-link" (click)='collapse()'>
+    <mat-icon>loop</mat-icon>Material-progress <!--MatProgressBarModule,MatProgressSpinnerModule-->
         <!--</a>
-        </li>-->
+  </li>-->
       </ul>
     </div>
   </nav>

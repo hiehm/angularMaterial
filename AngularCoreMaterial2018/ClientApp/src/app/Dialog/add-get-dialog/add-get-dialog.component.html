@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>
   新增部落格文章
 </h2>
-
+<!--mat-dialog-content Dialog主體內容-->
 <mat-dialog-content class="post-form">
   <mat-form-field>
-    <input matInput placeholder="標題" />
+    <input matInput placeholder="標題" [value]="names" />
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="文章內容" rows="3"></textarea>
@@ -14,7 +14,9 @@
   ...
 </mat-dialog-content>
 
+<!--mat-dialog-actions 按鈕放置區塊-->
 <mat-dialog-actions>
-  <button mat-button color="primary">發表</button>
+  <button mat-button color="primary" (click)="doPost()">發表</button>
+  <!--mat-dialog-close Directive 關閉Dialog介面-->
   <button mat-button mat-dialog-close color="warn">取消</button>
 </mat-dialog-actions>
