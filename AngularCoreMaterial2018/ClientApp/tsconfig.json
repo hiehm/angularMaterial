@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",  // 修正成src
+    "baseUrl": "src",  // 修正成src,讓@angular/xxx Module可正確讀取
     //"baseUrl": "./", // ./為無效路徑
     "paths": { "*": [ "types/*" ] },
     "outDir": "./dist/out-tsc",

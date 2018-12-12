@@ -8,3 +8,13 @@
 div.content>div{
   margin-top:15px;
 }
+.mat-form-field{
+  width:50%;
+  display:block;
+}
+div.Subcontent{
+  margin-top:5px;
+}
+button{
+  margin:5px;
+}

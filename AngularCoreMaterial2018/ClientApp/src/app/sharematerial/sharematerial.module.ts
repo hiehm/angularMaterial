@@ -1,6 +1,5 @@
 //自訂共用Material Module供Component共用
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatIconModule, MatButtonToggleModule,
   MatRippleModule, MatSidenavModule, MatToolbarModule,
@@ -10,7 +9,7 @@ import {
   MatCheckboxModule, MatRadioModule, MatSlideToggleModule,
   MatSliderModule, MatGridListModule, MatCardModule,
   MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule,
-  MatChipsModule,
+  MatChipsModule, MatTooltipModule, MatSnackBarModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
@@ -60,7 +59,9 @@ export const TW_FORMATS = {
     MatProgressBarModule, //ProgressBar 線性進度條
     MatProgressSpinnerModule,//ProgressSpinner 迴圈進度條
     MatDialogModule, //Dialog 彈跳視窗
-    MatChipsModule
+    MatChipsModule, //Chip 文章標籤
+    MatTooltipModule, //Tooltip 標籤提示訊息
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -88,7 +89,9 @@ export const TW_FORMATS = {
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [
     //moment.js 全域格式化日期語系

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material';
+import { MatChipInputEvent, MatSnackBar } from '@angular/material';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 
 
@@ -11,7 +11,8 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 export class MaterialChipTooltipSnackbarComponent implements OnInit {
   tags: any[];
   separatorKeysCodes: any[];
-  constructor() { }
+  title: string;
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.tags = ['MATT', 'MARY', 'ILANDY'];
@@ -31,5 +32,9 @@ export class MaterialChipTooltipSnackbarComponent implements OnInit {
   removeTag(tagName) {
     console.log(tagName);
     this.tags = this.tags.filter(tag => tag !== tagName);
+  }
+  ShowSnackBar() {
+    //SnackBar Service open("Message","關閉訊息文字",config)
+    this.snackBar.open('哈囉~SnackBar出現囉!!',"我知道了")
   }
 }

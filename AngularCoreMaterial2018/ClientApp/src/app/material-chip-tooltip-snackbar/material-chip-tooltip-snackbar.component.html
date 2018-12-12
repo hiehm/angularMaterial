@@ -1,5 +1,6 @@
-<h4>Chip 文章標籤</h4>
+
 <div class="content">
+  <h4>Chip 文章標籤</h4>
   <div>
     <mat-chip-list>
       <!--(removed)事件 搭配<mat-icon>的matChipRemove Directive可移除<mat-chip>-->
@@ -35,7 +36,33 @@
              [matChipInputFor]="chipList"
              [matChipInputAddOnBlur]="true"
              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-             (matChipInputTokenEnd)="addTag($event)" />
+             (matChipInputTokenEnd)="addTag($event)"
+             matInput />
+      <mat-hint>輸入些什麼吧!?!?!</mat-hint>
     </mat-form-field>
+  </div>
+</div>
+<div class="Subcontent">
+  <h4>Tooltip 提示標籤</h4>
+  <div>
+    <button mat-button mat-raised-button (click)="titleTooltip.show()" color="primary">打開提示</button>
+    <button mat-button mat-raised-button (click)="titleTooltip.hide()" color="warn">關閉提示</button>
+    <mat-form-field>
+      <!--matTooltip 提示訊息-->
+      <!--matTooltipPosition 改變顯示位置-->
+      <!--matTooltipShowDelay、matTooltipHideDelay 設定顯示與隱藏時間-->
+      <input matTooltip="替你的文章下一個漂亮的標題吧！"
+             matTooltipPosition="below"
+             matTooltipShowDelay="0"
+             matTooltipHideDelay="500"
+             #titleTooltip="matTooltip"
+             matInput placeholder="標題" [(ngModel)]="title" />
+    </mat-form-field>
+  </div>
+</div>
+<div class="Subcontent">
+  <h4>SnackBar toast彈跳提示視窗</h4>
+  <div>
+    <button mat-button mat-raised-button (click)="ShowSnackBar()" color="primary">Show SnackBar</button>
   </div>
 </div>
