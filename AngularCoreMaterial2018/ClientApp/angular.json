@@ -12,7 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             //修正此路徑為./相對路徑
-            "outputPath": "./dist/AngularCoreMaterial2018",
+            "outputPath": "./dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",

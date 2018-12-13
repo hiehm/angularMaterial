@@ -10,6 +10,7 @@ import {
   MatSliderModule, MatGridListModule, MatCardModule,
   MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule,
   MatChipsModule, MatTooltipModule, MatSnackBarModule,
+  MatTableModule, MatSortModule, MatPaginatorModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
@@ -61,7 +62,10 @@ export const TW_FORMATS = {
     MatDialogModule, //Dialog 彈跳視窗
     MatChipsModule, //Chip 文章標籤
     MatTooltipModule, //Tooltip 標籤提示訊息
-    MatSnackBarModule
+    MatSnackBarModule, //Toast 底部彈跳提示訊息
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   exports: [
     MatButtonModule,
@@ -91,7 +95,10 @@ export const TW_FORMATS = {
     MatDialogModule,
     MatChipsModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [
     //moment.js 全域格式化日期語系
