@@ -90,6 +90,11 @@
             <mat-icon>table_chart</mat-icon>Material-table <!--MatChipsModule-->
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: trye }'>
+          <a [routerLink]='["/cdk-dynamic-component"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>table_chart</mat-icon>Cdk-dynamic-component <!--MatChipsModule-->
+          </a>
+        </li>
         <!--<li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
   <a [routerLink]='["/material-progress"]' class="nav-link" (click)='collapse()'>
     <mat-icon>loop</mat-icon>Material-progress <!--MatProgressBarModule,MatProgressSpinnerModule-->

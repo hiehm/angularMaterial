@@ -23,6 +23,8 @@ import { MaterialGridlistComponent } from './material-gridlist/material-gridlist
 import { MaterialProgressComponent } from './material-progress/material-progress.component';
 import { MaterialChipTooltipSnackbarComponent } from './material-chip-tooltip-snackbar/material-chip-tooltip-snackbar.component';
 import { MaterialTableComponent } from './material-table/material-table.component';
+import { CdkDynamicComponentComponent } from './cdk-dynamic-component/cdk-dynamic-component.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,11 +45,13 @@ import { MaterialTableComponent } from './material-table/material-table.componen
     MaterialGridlistComponent,
     MaterialProgressComponent,
     MaterialChipTooltipSnackbarComponent,
-    MaterialTableComponent
+    MaterialTableComponent,
+    CdkDynamicComponentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -67,13 +71,15 @@ import { MaterialTableComponent } from './material-table/material-table.componen
       { path: 'material-gridlist', component: MaterialGridlistComponent },
       { path: 'material-progress', component: MaterialProgressComponent },
       { path: 'material-chip-tooltip-snackbar', component: MaterialChipTooltipSnackbarComponent },
-      { path: 'material-table', component: MaterialTableComponent }
+      { path: 'material-table', component: MaterialTableComponent },
+      { path: 'cdk-dynamic-component', component: CdkDynamicComponentComponent } //動態載入Component (Cdk-Portal)
     ], { useHash: true, enableTracing: true }), //部屬Azure設定
     SharematerialModule
   ],
   providers: [
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[HomeComponent]
 })
 export class AppModule { }

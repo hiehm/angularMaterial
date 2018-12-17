@@ -1,0 +1,32 @@
+<div class="portal-demo">
+  <div class="tabs">
+    <button mat-button (click)="changePortal1()">功能1</button>
+    <button mat-button (click)="changePortal2()">功能2</button>
+    <button mat-button (click)="changePortal3()">功能3</button>
+    <button mat-button (click)="changePortal4()">功能4</button>
+  </div>
+  <div class="tab-content">
+    <!--[cdkPortalOutlet] 動態Component載入位置,currentPortal載入內容-->
+    <div [cdkPortalOutlet]="currentPortal"></div>
+    <!--cdkPortalOutlet Directive,此種宣告可將cdkPortalOutlet指派給自訂變數-->
+    <div cdkPortalOutlet #portalOutlet="cdkPortalOutlet"></div>
+  </div>
+  <mat-divider></mat-divider>
+  <button mat-button color="primary" (click)="createOutletOutOfApp()">產生自訂DOM容器</button>
+  <button mat-button color="warn" (click)="addTemplatePortal()">插入內容到容器之中</button>
+</div>
+<!--宣告Directive方式-->
+<ng-template cdkPortal let-nameInTemplate="nameInObject">
+  <p>
+    功能1：我放在ng-template + cdkPortal = TemplatePortal裡面 {{nameInTemplate}}
+  </p>
+</ng-template>
+<!--宣告語法糖Directive-->
+<p *cdkPortal>
+  功能2：我放在一般的HTML Element內，{{name}}加上cdkPortal後變成了一個TemplatePortal
+</p>
+<!--宣告ng-template #template方式-->
+<!--let-xxx="傳入內容" 將內容傳入portal,並指派給let-xxx-->
+<ng-template #template let-nameInTemplate="nameInObject">
+  功能3：{{nameInTemplate}} 我放在ng-template內，但不是TemplatePortal，要用我要記得先包裝一下
+</ng-template>

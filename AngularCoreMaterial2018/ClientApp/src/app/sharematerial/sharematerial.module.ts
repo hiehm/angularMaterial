@@ -15,6 +15,7 @@ import {
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
+import { PortalModule } from '@angular/cdk/portal'; //
 import { AddGetDialogComponent } from '../Dialog/add-get-dialog/add-get-dialog.component';
 import { AddGetDialogComfirmComponent } from '../Dialog/add-get-dialog-comfirm/add-get-dialog-comfirm.component';
 export const TW_FORMATS = {
@@ -98,7 +99,8 @@ export const TW_FORMATS = {
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    PortalModule
   ],
   providers: [
     //moment.js 全域格式化日期語系
