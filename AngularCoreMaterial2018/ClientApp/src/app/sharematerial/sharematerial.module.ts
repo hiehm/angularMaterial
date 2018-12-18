@@ -14,6 +14,7 @@ import {
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
 import { PortalModule } from '@angular/cdk/portal'; //
 import { AddGetDialogComponent } from '../Dialog/add-get-dialog/add-get-dialog.component';
@@ -67,6 +68,7 @@ export const TW_FORMATS = {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -100,7 +102,8 @@ export const TW_FORMATS = {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    PortalModule
+    PortalModule,
+    FlexLayoutModule
   ],
   providers: [
     //moment.js 全域格式化日期語系

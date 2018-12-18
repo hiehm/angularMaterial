@@ -25,6 +25,7 @@ import { MaterialChipTooltipSnackbarComponent } from './material-chip-tooltip-sn
 import { MaterialTableComponent } from './material-table/material-table.component';
 import { CdkDynamicComponentComponent } from './cdk-dynamic-component/cdk-dynamic-component.component';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CommonModule } from '@angular/common';
     MaterialProgressComponent,
     MaterialChipTooltipSnackbarComponent,
     MaterialTableComponent,
-    CdkDynamicComponentComponent
+    CdkDynamicComponentComponent,
+    FlexLayoutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -72,6 +74,7 @@ import { CommonModule } from '@angular/common';
       { path: 'material-progress', component: MaterialProgressComponent },
       { path: 'material-chip-tooltip-snackbar', component: MaterialChipTooltipSnackbarComponent },
       { path: 'material-table', component: MaterialTableComponent },
+      { path: 'flex-layout', component: FlexLayoutComponent },
       { path: 'cdk-dynamic-component', component: CdkDynamicComponentComponent } //動態載入Component (Cdk-Portal)
     ], { useHash: true, enableTracing: true }), //部屬Azure設定
     SharematerialModule
