@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,9 +6,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./nav-menu.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit {
   isExpanded = false;
-
+  ngOnInit() {
+  }
   collapse() {
     this.isExpanded = false;
   }
@@ -16,4 +17,5 @@ export class NavMenuComponent {
     console.log(this.isExpanded);
     this.isExpanded = !this.isExpanded;
   }
+
 }

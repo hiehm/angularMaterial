@@ -1,3 +1,6 @@
+<h4>
+  Flex-Layout
+</h4>
 <!--fxFill 填滿視窗-->
 <!--fxLayoutWrap 超出範圍時是否換成 wrap(換行)|nowrap(不換行)|wrap-reverse(反轉)-->
 <div fxFill fxLayoutWrap="wrap" fxLayout="column" fxLayoutGap="10px">
@@ -6,23 +9,23 @@
     <!--fxHide 設定隱藏條件-->
     <!--fxShow 設定顯示條件-->
     <span fxHide.lt-md fxShow>lt-md小於959px隱藏,</span>
+    <!--[ngStyle] 設定樣式變化-->
     <span [ngStyle.xs]="{'font-size.px': 10, color: 'blue'}">xs小於599px變更Style</span>
   </div>
   <!--巢狀fxLayout,必須宣告自己為fxFlex子元素且帶有fxLayout特性-->
   <!--fxLayoutGap 子元素間隔,若Layout=Row則水平間隔,Column則垂直間隔-->
-  <!--fxLayoutAlign 元素對齊方式,"水平位置 垂直位置"-->
-  <div  fxFlex="1 1 50" fxLayout="row" fxLayoutGap="0px" fxLayoutAlign="center stretch">
+  <!--fxLayoutAlign 元素對齊方式,"水平位置 垂直位置、填滿(Stretch)"-->
+  <div fxFlex="1 1 50" fxLayout="row" fxLayoutGap="0px" fxLayoutAlign="center stretch">
     <!--fxFlex 控制子元素大小,其中包含三個屬性"flex-grow,flex-shrink,flex-basis"-->
-       <!--flex-grow 長度小於父元素分配到的長度,按數字最相對應的伸展比例,預設為1,無行為0-->
-       <!--flex-shrink 長度大於父元素分配到的長度,按數字最相對應的伸展比例,預設為1,無行為0-->
-       <!--flex-basis 子元素大小設定,此屬性等同於 max-width-->
+    <!--flex-grow 長度小於父元素分配到的長度,按數字最相對應的伸展比例,預設為1,無行為0-->
+    <!--flex-shrink 長度大於父元素分配到的長度,按數字最相對應的伸展比例,預設為1,無行為0-->
+    <!--flex-basis 子元素大小設定,此屬性等同於 max-width-->
     <div fxFlex="1 1 35" fxFlexAlign="start">
       2
     </div>
-    <!--fxFlexOffset 偏移量控制-->
-    <!--fxLayoutAlign -->
-    <div fxFlexFill fxFlex="2 2 50" fxFlexOffset="70px;" fxFlexOrder="2" fxLayoutAlign="center center" fxFlexAlign="end">
-      <span fxFlexAlign="baseline">3</span>
+    <!--fxFlexOffset 偏移量控制 -->
+    <div fxFlex="2 2 50" fxFlexOffset="70px;" fxFlexOrder="2" gdAlignColumns="center center" fxLayoutAlign="center center">
+      <span fxFlexAlign="baseline">3.包含fxLayoutAlign + gdAlignColumns特性</span>
       <mat-form-field>
         <input matInput type="text" placeholder="First Name" />
       </mat-form-field>
@@ -32,11 +35,72 @@
     </div>
     <!--fxFlexOrder 定義同層子元素中排序-->
     <!--fxFlexAlign 設定子元素自身對齊方式-->
-    <div fxFlex="1 1 15"  fxFlexOrder="1" fxFlexAlign="center" fxLayoutAlign="end center">
+    <div fxFlex="1 1 15" fxFlexOrder="1" fxFlexAlign="center" fxLayoutAlign="end center">
       4
     </div>
   </div>
   <div fxFlex>
     5
+  </div>
+</div>
+<mat-divider></mat-divider>
+<h4>
+  Flex-Layout With Grid API
+</h4>
+<div fxFill fxLayout="column" fxLayoutGap="10px" class="divLastBottom">
+  <!--gdAlignColumns 產生一個橫列容器,做為元素對齊方式-->
+  <div fxFlex="1 1 30" gdAlignColumns="center center">
+    <span>1.gdAlignColumns 產生一個橫列容器,做為元素對齊方式</span>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Your Address." />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Your Address2." />
+    </mat-form-field>
+  </div>
+  <!--gdAreas 設定介面分割區域,Column Column | ←這樣一組等同於"一列二欄",屬性自帶wrap效果-->
+  <!--gdGap 針對gdAreas的容器元素進行間隔,不支援內容元素-->
+  <!--gdAreas.BreakPoint(斷點設計)-實現出響應式元素變化設計-->
+    <!--其中gdAreas由 "三列四欄 => 四列一欄"-->
+  <!--gdRows 設定每一列的高度-->
+  <!--gdColumns 設定每一欄的寬度-->
+  <div gdAreas="No2 No2 No2 No2 | No3 No3 No3 No4 | No6 No6 No6 No6"
+       gdGap="16px"
+       gdRows="auto 30vh 50px"
+       gdColumns="10vw 10vw 10vw auto"
+       gdAreas.lt-md="No2 | No3 | No4 | No6"
+       gdRows.lt-md="auto auto auto auto"
+       gdColumns.lt-md="auto">
+    <!--gdArea 給予容器元素區域編號,可視為將塞入Areas中的內容-->
+    <!--!重要 gdGap不支援內容元素進行間隔,需使用fxLayoutGap才可使用-->
+    <!--!重要 使用相斥性屬性時,會使得wrap效果失效-->
+    <div gdArea="No2" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput placeholder="2.1" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="2.2" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="2.3" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="2.4" />
+      </mat-form-field>
+    </div>
+    <div gdArea="No3">3.</div>
+    <div gdArea="No4" [ngStyle.lt-md]="{'background':'green'}">4.低於959px後,會自己變成一行</div>
+    <div gdArea="No6">6.</div>
+  </div>
+
+  <!--gdAlignRows 產生一個直行容器,做為元素對齊方式-->
+  <div fxFlex="1 1 20" gdAlignRows="end stretch">
+    <span>5.gdAlignRows 產生一個直行容器,做為元素對齊方式 </span>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Your Address." />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Your Address2." />
+    </mat-form-field>
   </div>
 </div>
