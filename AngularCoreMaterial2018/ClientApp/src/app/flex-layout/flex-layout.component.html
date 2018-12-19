@@ -64,17 +64,17 @@
     <!--其中gdAreas由 "三列四欄 => 四列一欄"-->
   <!--gdRows 設定每一列的高度-->
   <!--gdColumns 設定每一欄的寬度-->
-  <div gdAreas="No2 No2 No2 No2 | No3 No3 No3 No4 | No6 No6 No6 No6"
+  <div fxFlex gdAreas="No2 No2 No2 No2 | No3 No3 No3 No4 | No6 No6 No6 No6"
        gdGap="16px"
-       gdRows="auto 30vh 50px"
-       gdColumns="10vw 10vw 10vw auto"
+       gdRows="40vh auto 50px"
+       gdColumns="5vw 5vw 5vw auto"
        gdAreas.lt-md="No2 | No3 | No4 | No6"
        gdRows.lt-md="auto auto auto auto"
        gdColumns.lt-md="auto">
     <!--gdArea 給予容器元素區域編號,可視為將塞入Areas中的內容-->
     <!--!重要 gdGap不支援內容元素進行間隔,需使用fxLayoutGap才可使用-->
     <!--!重要 使用相斥性屬性時,會使得wrap效果失效-->
-    <div gdArea="No2" fxLayoutGap="10px">
+    <div gdArea="No2" fxLayoutGap="10px" gdGridAlign="center center">
       <mat-form-field>
         <input matInput placeholder="2.1" />
       </mat-form-field>
