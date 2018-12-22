@@ -1,0 +1,60 @@
+<div>
+  <div>
+    <h2>mat-expansion-panel</h2>
+    <!--mat-expansion-panel 收納盒元素-->
+    <!--expanded 預設展開/收合-->
+    <mat-expansion-panel expanded="true">
+      <!--mat-expansion-panel-header 標題區域-->
+      <mat-expansion-panel-header>
+        <!--mat-panel-title 左方標題-->
+        <mat-panel-title>
+          <mat-icon>inbox</mat-icon>
+          收件夾
+        </mat-panel-title>
+        <!--mat-panel-desciption 中間標題-->
+        <mat-panel-description>
+          3 封未讀
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-action-row>
+        <button mat-raised-button color="primary">管理我的聯絡人</button>
+      </mat-action-row>
+      <!-- 收件夾內容 -->
+    </mat-expansion-panel>
+    <!--hideToggle Directive 顯示/隱藏右上方按鈕-->
+    <mat-expansion-panel hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>person</mat-icon>
+          聯絡人列表
+        </mat-panel-title>
+        <mat-panel-description>
+          2 人在線上
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- 聯絡人列表內容 -->
+      ...
+    </mat-expansion-panel>
+  </div>
+
+  <div>
+    <h2>mat-accordion With mat-expansion-panel</h2>
+    <!--mat-accordion 手風琴容器-->
+    <!--multi 是否允許多開 true/false-->
+    <!--displayMode 子容器panel的間隔,預設為"default","flat"-->
+    <mat-accordion multi="false" displayMode="flat">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Panel1
+        </mat-expansion-panel-header>
+        PPP1
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Panel2
+        </mat-expansion-panel-header>
+        PPP2
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

@@ -91,6 +91,11 @@
           </a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: trye }'>
+          <a [routerLink]='["/material-ex-panel"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>all_inbox</mat-icon>material-ex-panel <!--MatExpansionModule-->
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: trye }'>
           <a [routerLink]='["/cdk-dynamic-component"]' class="nav-link" (click)='collapse()'>
             <mat-icon>flip_to_front</mat-icon>Cdk-dynamic-component <!--MatChipsModule-->
           </a>
