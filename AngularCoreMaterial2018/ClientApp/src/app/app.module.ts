@@ -27,6 +27,7 @@ import { CdkDynamicComponentComponent } from './cdk-dynamic-component/cdk-dynami
 import { CommonModule } from '@angular/common';
 import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
 import { MaterialExPanelComponent } from './material-ex-panel/material-ex-panel.component';
+import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +49,11 @@ import { MaterialExPanelComponent } from './material-ex-panel/material-ex-panel.
     MaterialProgressComponent,
     MaterialChipTooltipSnackbarComponent,
     MaterialTableComponent,
+    MaterialExPanelComponent,
+    MaterialTabsComponent,
     CdkDynamicComponentComponent,
     FlexLayoutComponent,
-    MaterialExPanelComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -77,6 +80,7 @@ import { MaterialExPanelComponent } from './material-ex-panel/material-ex-panel.
       { path: 'material-chip-tooltip-snackbar', component: MaterialChipTooltipSnackbarComponent },
       { path: 'material-table', component: MaterialTableComponent },
       { path: 'material-ex-panel', component: MaterialExPanelComponent },
+      { path: 'material-tabs', component: MaterialTabsComponent },
       { path: 'flex-layout', component: FlexLayoutComponent },
       { path: 'cdk-dynamic-component', component: CdkDynamicComponentComponent } //動態載入Component (Cdk-Portal)
     ], { useHash: true, enableTracing: true }), //部屬Azure設定

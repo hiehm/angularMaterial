@@ -11,7 +11,7 @@ import {
   MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule,
   MatChipsModule, MatTooltipModule, MatSnackBarModule,
   MatTableModule, MatSortModule, MatPaginatorModule,
-  MatExpansionModule,
+  MatExpansionModule, MatTabsModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS, //provide 日期顯示格式化
 } from '@angular/material';
@@ -67,7 +67,8 @@ export const TW_FORMATS = {
     MatTooltipModule, //Tooltip 標籤提示訊息
     MatSnackBarModule, //Toast 底部彈跳提示訊息
     MatTableModule, //Table 表格式列表
-    MatExpansionModule,
+    MatExpansionModule,//Panel 收納盒與手風琴
+    MatTabsModule, //Tab 標籤
     MatSortModule, //Sort 排序
     MatPaginatorModule,
     FlexLayoutModule //FlexLayout 
@@ -103,6 +104,7 @@ export const TW_FORMATS = {
     MatSnackBarModule,
     MatTableModule,
     MatExpansionModule,
+    MatTabsModule,
     MatSortModule,
     MatPaginatorModule,
     PortalModule,

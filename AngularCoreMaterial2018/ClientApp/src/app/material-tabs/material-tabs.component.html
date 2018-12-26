@@ -1,0 +1,132 @@
+<div>
+  <div>
+    <h2>mat-tab</h2>
+    <button mat-raised-button (click)="tabIndex = tabIndex - 1" color="primary">上一個</button>
+    <button mat-raised-button (click)="tabIndex = tabIndex + 1" color="primary">下一個</button>
+    <p>目前的selectedIndex: {{ tabIndex }}</p>
+    <!--mat-tab-group Tab主容器-->
+    <!--[(selectedIndex)]="index" 指定跳到選取的標籤,其特性為TwoWay-Binding-->
+    <mat-tab-group [(selectedIndex)]="tabIndex">
+      <!--mat-tab 標籤元素-->
+      <mat-tab label="郵件列表">
+        郵件列表清單
+      </mat-tab>
+      <mat-tab label="系統設定">
+        系統設定表單
+      </mat-tab>
+      <mat-tab label="其他">
+        其他畫面
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div>
+    <h2>Event相關事件</h2>
+    <!--(focusChange) focus變更後觸發-->
+    <!--(selectedIndexChange) Index變更後觸發-->
+    <!--(selectedTabChange) Tab標籤變更後觸發-->
+    <mat-tab-group [(selectedIndex)]="tabIndex"
+                   (focusChange)="tabFocusChange($event)"
+                   (selectedIndexChange)="tabSelectedIndexChange($event)"
+                   (selectedTabChange)="tabSelectedTabChange($event)">
+      <mat-tab label="郵件列表">
+        郵件列表清單
+      </mat-tab>
+      <mat-tab label="系統設定">
+        系統設定表單
+      </mat-tab>
+      <mat-tab label="其他">
+        其他畫面
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div>
+    <h2>Label 自訂標籤內容,平均寬度,自動產生左右滑軌</h2>
+    <!--mat-stretch-tabs 平均分配label標籤寬度-->
+    <!--backgroundColor 修改mat-tab-group顏色-->
+    <!--color 修改mat-tab底部顏色-->
+    <mat-tab-group mat-stretch-tabs backgroundColor="warn" color="accent">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>inbox</mat-icon>
+          郵件列表
+        </ng-template>
+        郵件列表清單 < ng-template mat-tab-label >
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>settings</mat-icon>
+          系統設定 mat-stretch-tabs
+        </ng-template>
+        系統設定表單
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          其它
+        </ng-template>
+        label過多會自動產生左右箭頭
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>settings</mat-icon>
+          系統設定 mat-stretch-tabs
+        </ng-template>
+        系統設定表單
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>inbox</mat-icon>
+          郵件列表
+        </ng-template>
+        郵件列表清單 < ng-template mat-tab-label >
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>settings</mat-icon>
+          系統設定 mat-stretch-tabs
+        </ng-template>
+        系統設定表單
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div>
+    <h2>HeaderPosition 改變Tab位置</h2>
+    <!--headerPosition 改變Tab位置-->
+    <mat-tab-group headerPosition="below">
+      <mat-tab label="郵件列表">
+        郵件列表清單
+      </mat-tab>
+      <mat-tab label="系統設定" disabled="true">
+        系統設定表單
+      </mat-tab>
+      <mat-tab label="其他">
+        其他畫面
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div>
+    <h2>Add、Delete 和設定新增後動作</h2>
+    <div>
+      <span> Selected tab index: </span>
+      <mat-form-field>
+        <input matInput type="number" [formControl]="selected">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #filter placeholder="搜尋" value="testInput">
+      </mat-form-field>
+    </div>
+    <div fxFill>
+      <button mat-raised-button (click)="addTab(selectAfterAdding.checked)">
+        Add new tab
+      </button>
+      <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>
+    </div>
+    <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+        <div style="height:100px;padding:15px;">
+          Contents for {{tab}} tab
+          <button mat-raised-button [disabled]="tabs.length === 1" (click)="removeTab(index)">Delete Tab</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

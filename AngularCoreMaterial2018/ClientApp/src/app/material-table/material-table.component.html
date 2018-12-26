@@ -1,35 +1,181 @@
-<!--[dataSource] 定義資料來源-->
-<mat-table [dataSource]="emailsDataSource">
-  <!--matColumnDef 定義欄位名稱-->
-  <ng-container matColumnDef="user">
-    <!--mat-header-cell *matHeaderCellDef 定義欄位標題-->
-    <mat-header-cell *matHeaderCellDef>寄件人</mat-header-cell>
-    <!--mat-cell 定義欄位裡呈現資料-->
-    <!--*matCellDef="let obj" 透過let variable方式取得每一筆資料物件-->
-    <mat-cell *matCellDef="let row">{{ row.user.login }}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef>標題</mat-header-cell>
-    <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="created_at">
-    <mat-header-cell *matHeaderCellDef>日期</mat-header-cell>
-    <mat-cell *matCellDef="let row">{{ row.created_at }}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="management">
-    <mat-header-cell *matHeaderCellDef>
-      <u>管理</u>
-    </mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <button mat-button color="primary" (click)="reply(row)">回覆</button>
-      <button mat-button color="warn" (click)="delete(row)">刪除</button>
-    </mat-cell>
-  </ng-container>
-  <!--mat-header-row 顯示標題列-->
-  <!--*matHeaderRowDef [Columns]寫入對應的定義欄位名稱-->
-  <mat-header-row *matHeaderRowDef="['user', 'title', 'created_at', 'management']"></mat-header-row>
-  <!--mat-row 顯示資料列-->
-  <!--*matRowDef="let columnName" 為每一列的資料列名稱-->
-  <!--*matRowDef="columns:[columnName1,columnName2] 設定要呈現的欄位-->
-  <mat-row *matRowDef="let emailRow; columns: ['user', 'title', 'created_at', 'management']"></mat-row>
-</mat-table>
+<div>
+  <mat-accordion multi="false" displayMode="flat">
+    <mat-expansion-panel expanded="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>mat-table 預先載入資料</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--[dataSource] 定義資料來源-->
+      <mat-table matSort #sortTable="matSort" [dataSource]="emailsDataSource">
+        <!--matColumnDef 定義欄位名稱-->
+        <ng-container matColumnDef="user">
+          <!--mat-header-cell *matHeaderCellDef 定義欄位標題-->
+          <mat-header-cell *matHeaderCellDef mat-sort-header>寄件人</mat-header-cell>
+          <!--mat-cell 定義欄位裡呈現資料-->
+          <!--*matCellDef="let obj" 透過let variable方式取得每一筆資料物件-->
+          <mat-cell *matCellDef="let row">{{ row.user.login }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>標題</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>日期</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.created_at }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="management">
+          <mat-header-cell *matHeaderCellDef>
+            <u>管理</u>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-button color="primary" (click)="reply(row)">回覆</button>
+            <button mat-button color="warn" (click)="delete(row)">刪除</button>
+          </mat-cell>
+        </ng-container>
+        <!--mat-header-row 顯示標題列-->
+        <!--*matHeaderRowDef [Columns]寫入對應的定義欄位名稱-->
+        <mat-header-row *matHeaderRowDef="['user', 'title', 'created_at', 'management']"></mat-header-row>
+        <!--mat-row 顯示資料列-->
+        <!--*matRowDef="let columnName" 為每一列的資料列名稱-->
+        <!--*matRowDef="columns:[columnName1,columnName2] 設定要呈現的欄位-->
+        <mat-row *matRowDef="let emailRow; columns: ['user', 'title', 'created_at', 'management']"></mat-row>
+      </mat-table>
+      <!--mat-paginator 分頁主功能-->
+      <mat-paginator #paginator></mat-paginator>
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>Paginator 分頁事件-將動態資料載入外部元素-</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!--matSort Directive 加入排序功能-->
+      <!--(matSortChange) 排序時觸發事件-->
+      <mat-table matSort (matSortChange)="changeSort($event)" [dataSource]="DynamicEmailDataSource">
+        <ng-container matColumnDef="user">
+          <!--mat-sort-header 在要排序的欄位 mat-header-cell 加上-->
+          <mat-header-cell *matHeaderCellDef>寄件人</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.user.login }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef>標題</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <mat-header-cell *matHeaderCellDef>日期</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.created_at }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="management">
+          <mat-header-cell *matHeaderCellDef>
+            <u>管理</u>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-button color="primary" (click)="reply(row)">回覆</button>
+            <button mat-button color="warn" (click)="delete(row)">刪除</button>
+          </mat-cell>
+        </ng-container>
+        <!--mat-header-row 顯示標題列-->
+        <!--*matHeaderRowDef [Columns]寫入對應的定義欄位名稱-->
+        <mat-header-row *matHeaderRowDef="['user', 'title', 'created_at', 'management']"></mat-header-row>
+        <!--mat-row 顯示資料列-->
+        <!--*matRowDef="let columnName" 為每一列的資料列名稱-->
+        <!--*matRowDef="columns:[columnName1,columnName2] 設定要呈現的欄位-->
+        <mat-row *matRowDef="let emailRow; columns: ['user', 'title', 'created_at', 'management']"></mat-row>
+      </mat-table>
+      <mat-paginator #DynamicPaginator></mat-paginator>
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>Filter 過濾資料</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput #filter placeholder="搜尋">
+      </mat-form-field>
+      <mat-table [dataSource]="emailsDataSource">
+        <ng-container matColumnDef="user">
+          <mat-header-cell *matHeaderCellDef>寄件人</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.user.login }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef>標題</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <mat-header-cell *matHeaderCellDef>日期</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.created_at }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="management">
+          <mat-header-cell *matHeaderCellDef>
+            <u>管理</u>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-button color="primary" (click)="reply(row)">回覆</button>
+            <button mat-button color="warn" (click)="delete(row)">刪除</button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="['user', 'title', 'created_at', 'management']"></mat-header-row>
+        <mat-row *matRowDef="let emailRow; columns: ['user', 'title', 'created_at', 'management']"></mat-row>
+      </mat-table>
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>Paginator 外部多元素綁定</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-card>
+        <mat-card-title-group>
+          <mat-card-title>item.title</mat-card-title>
+          <mat-card-subtitle>item.created_at</mat-card-subtitle>
+          <img mat-card-sm-image src="{{ImageSrc}}" />
+        </mat-card-title-group>
+        <mat-card-content>
+          <mat-paginator #paginatorMulti></mat-paginator>
+          <mat-table matSort #sortTable="matSort" [dataSource]="PaginatorMultiDataSource">
+            <ng-container matColumnDef="user">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>寄件人</mat-header-cell>
+              <mat-cell *matCellDef="let row">{{ row.user.login }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>標題</mat-header-cell>
+              <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="created_at">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>日期</mat-header-cell>
+              <mat-cell *matCellDef="let row">{{ row.created_at }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="management">
+              <mat-header-cell *matHeaderCellDef>
+                <u>管理</u>
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <button mat-button color="primary" (click)="reply(row)">回覆</button>
+                <button mat-button color="warn" (click)="delete(row)">刪除</button>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="['user', 'title', 'created_at', 'management']"></mat-header-row>
+            <mat-row *matRowDef="let emailRow; columns: ['user', 'title', 'created_at', 'management']"></mat-row>
+          </mat-table>
+        </mat-card-content>
+      </mat-card>
+      <mat-card *ngFor="let item of PaginatorCardDataSource">
+        <mat-card-title-group>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-subtitle>{{item.created_at}}</mat-card-subtitle>
+          <img mat-card-sm-image src="{{ImageSrc}}" />
+        </mat-card-title-group>
+        <mat-card-content>
+          <div><label>USER:{{item.user.login}}</label></div>
+        </mat-card-content>
+      </mat-card>
+      <mat-paginator #paginatorMulti2></mat-paginator>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
