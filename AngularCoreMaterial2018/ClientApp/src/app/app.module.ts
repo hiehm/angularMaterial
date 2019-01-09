@@ -28,6 +28,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
 import { MaterialExPanelComponent } from './material-ex-panel/material-ex-panel.component';
 import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
+import { ThemesCustomComponent } from './themes-custom/themes-custom.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
     MaterialTabsComponent,
     CdkDynamicComponentComponent,
     FlexLayoutComponent,
+    ThemesCustomComponent,
 
   ],
   imports: [
@@ -82,7 +84,8 @@ import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
       { path: 'material-ex-panel', component: MaterialExPanelComponent },
       { path: 'material-tabs', component: MaterialTabsComponent },
       { path: 'flex-layout', component: FlexLayoutComponent },
-      { path: 'cdk-dynamic-component', component: CdkDynamicComponentComponent } //動態載入Component (Cdk-Portal)
+      { path: 'cdk-dynamic-component', component: CdkDynamicComponentComponent }, //動態載入Component (Cdk-Portal)
+      { path: 'themes-custom', component: ThemesCustomComponent }
     ], { useHash: true, enableTracing: true }), //部屬Azure設定
     SharematerialModule
   ],

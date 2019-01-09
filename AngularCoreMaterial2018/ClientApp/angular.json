@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              //"src/styles.css",
+              "src/themes/Custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
@@ -74,7 +75,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css",
+              //"src/styles.css",
+              "src/themes/Custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "assets": [
