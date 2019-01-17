@@ -13,22 +13,37 @@ import {
   MatTableModule, MatSortModule, MatPaginatorModule,
   MatExpansionModule, MatTabsModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
-  MAT_DATE_FORMATS, //provide 日期顯示格式化
+  MAT_DATE_FORMATS,
+  DateAdapter,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
+import { AmazingTimePickerModule } from 'amazing-time-picker'; //datetimePicker地三方套件
 import { PortalModule } from '@angular/cdk/portal'; //
 import { AddGetDialogComponent } from '../Dialog/add-get-dialog/add-get-dialog.component';
 import { AddGetDialogComfirmComponent } from '../Dialog/add-get-dialog-comfirm/add-get-dialog-comfirm.component';
+import { DatePipe } from '@angular/common';
+import { TwDateAdapter } from '../provider/TwDateAdapter';
+//export const TW_FORMATS = {
+//  parse: {
+//    dateInput: 'YYYY/MM/DD'
+//  },
+//  display: {
+//    dateInput: 'YYYY/MM/DD',
+//    monthYearLabel: 'YYYY MMM',
+//    dateA11yLabel: 'YYY/MM/DD',
+//    monthYearA11yLabel: 'YYY MMM'
+//  }
+//};
 export const TW_FORMATS = {
   parse: {
     dateInput: 'YYYY/MM/DD'
   },
   display: {
-    dateInput: 'YYYY/MM/DD',
-    monthYearLabel: 'YYYY MMM',
-    dateA11yLabel: 'YYYY/MM/DD',
-    monthYearA11yLabel: 'YYYY MMM'
+    dateInput: 'input',
+    monthYearLabel: 'monthYearLabel',
+    dateA11yLabel: 'input',
+    monthYearA11yLabel: 'monthYearLabel'
   }
 };
 
@@ -71,7 +86,8 @@ export const TW_FORMATS = {
     MatTabsModule, //Tab 標籤
     MatSortModule, //Sort 排序
     MatPaginatorModule,
-    FlexLayoutModule //FlexLayout 
+    FlexLayoutModule, //FlexLayout
+    AmazingTimePickerModule //DateTimePicker地三方套件
   ],
   exports: [
     MatButtonModule,
@@ -108,12 +124,16 @@ export const TW_FORMATS = {
     MatSortModule,
     MatPaginatorModule,
     PortalModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AmazingTimePickerModule
   ],
   providers: [
+    DatePipe,
     //moment.js 全域格式化日期語系
     { provide: MAT_DATE_LOCALE, useValue: 'zh-TW' },
-    { provide: MAT_DATE_FORMATS, useValue: TW_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: TW_FORMATS },
+    { provide: DateAdapter, useClass: TwDateAdapter },
+    //{ provide: MatDatepickerIntl, useClass: MyCalendarIntl }
   ],
   //entryComponents 注入動態產生元件
   //在component中動態呼叫另一個component時,必須於此註冊

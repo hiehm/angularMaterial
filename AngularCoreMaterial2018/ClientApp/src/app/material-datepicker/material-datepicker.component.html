@@ -1,4 +1,4 @@
-<form [formGroup]="basicGroupForm">
+<form [formGroup]="basicGroupForms">
   <h2>mat-datePicker</h2>
   <div class="content">
     <div>
@@ -80,5 +80,20 @@
       <!--datepicker.opened=true 自訂開啟日期事件-->
       <button (click)="birthdayPickerCustomOpen.opened=true" mat-raised-button mat-mini-fab color="primary">開啟</button>
     </div>
+    <div>
+      <mat-form-field>
+        <input type="text" name="dateTimePickerInput" formControlName="dateTimePickerInput" placeholder="時間選擇器" matInput required />
+      </mat-form-field>
+      <button (click)="amazingTimePickOpne()" mat-raised-button mat-mini-fab color="primary">開啟</button>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [matDatepicker]="CustomDatePicker" type="text" name="CustomDatePickerHeader" placeholder="自訂DatePickerHeader" formControlName="CustomDatePickerHeader" matInput />
+        <mat-error>請輸入生日</mat-error>
+        <mat-datepicker #CustomDatePicker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
+      </mat-form-field>
+      <button (click)="CustomDatePicker.opened=true" mat-raised-button mat-mini-fab color="primary">開啟</button>
+    </div>
   </div>
 </form>
+

@@ -1,0 +1,25 @@
+<div class="example-header">
+  <button mat-icon-button class="example-double-arrow" (click)="previousClicked('year')">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button mat-icon-button (click)="previousClicked('month')">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <form [formGroup]="basicGroupForm">
+    <mat-form-field floatLabel="never">
+      <input type="text" #yearInput matInput [value]="periodLabel" maxlength="3"
+             placeholder="請輸入三位數,例:090,105" (keyup)="periodChange(yearInput.value)"
+             name="periodInput" formControlName="periodInput" class="example-header-label" />
+      <mat-error>請輸入三位數</mat-error>
+    </mat-form-field>
+  </form>
+  <button mat-icon-button (click)="nextClicked('month')">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+  <button mat-icon-button class="example-double-arrow" (click)="nextClicked('year')">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>
+

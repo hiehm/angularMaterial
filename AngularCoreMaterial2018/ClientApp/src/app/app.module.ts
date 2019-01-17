@@ -29,6 +29,7 @@ import { FlexLayoutComponent } from './flex-layout/flex-layout.component';
 import { MaterialExPanelComponent } from './material-ex-panel/material-ex-panel.component';
 import { MaterialTabsComponent } from './material-tabs/material-tabs.component';
 import { ThemesCustomComponent } from './themes-custom/themes-custom.component';
+import { CustomDatePickerHeaderComponent } from './Partial/custom-date-picker-header/custom-date-picker-header.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ThemesCustomComponent } from './themes-custom/themes-custom.component';
     CdkDynamicComponentComponent,
     FlexLayoutComponent,
     ThemesCustomComponent,
+    CustomDatePickerHeaderComponent,
 
   ],
   imports: [
@@ -93,6 +95,6 @@ import { ThemesCustomComponent } from './themes-custom/themes-custom.component';
 
   ],
   bootstrap: [AppComponent],
-  entryComponents:[HomeComponent]
+  entryComponents: [HomeComponent, CustomDatePickerHeaderComponent]
 })
 export class AppModule { }
