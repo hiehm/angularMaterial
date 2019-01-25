@@ -35,6 +35,6 @@ export class MaterialChipTooltipSnackbarComponent implements OnInit {
   }
   ShowSnackBar() {
     //SnackBar Service open("Message","關閉訊息文字",config)
-    this.snackBar.open('哈囉~SnackBar出現囉!!',"我知道了")
+    this.snackBar.open('哈囉~SnackBar出現囉!!', "我知道了");
   }
 }
