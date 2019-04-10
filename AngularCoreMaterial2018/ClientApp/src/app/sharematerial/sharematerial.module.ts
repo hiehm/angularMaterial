@@ -24,28 +24,28 @@ import { AddGetDialogComponent } from '../Dialog/add-get-dialog/add-get-dialog.c
 import { AddGetDialogComfirmComponent } from '../Dialog/add-get-dialog-comfirm/add-get-dialog-comfirm.component';
 import { DatePipe } from '@angular/common';
 import { TwDateAdapter } from '../provider/TwDateAdapter';
-//export const TW_FORMATS = {
-//  parse: {
-//    dateInput: 'YYYY/MM/DD'
-//  },
-//  display: {
-//    dateInput: 'YYYY/MM/DD',
-//    monthYearLabel: 'YYYY MMM',
-//    dateA11yLabel: 'YYY/MM/DD',
-//    monthYearA11yLabel: 'YYY MMM'
-//  }
-//};
 export const TW_FORMATS = {
   parse: {
     dateInput: 'YYYY/MM/DD'
   },
   display: {
-    dateInput: 'input',
-    monthYearLabel: 'monthYearLabel',
-    dateA11yLabel: 'input',
-    monthYearA11yLabel: 'monthYearLabel'
+    dateInput: 'YYYY/MM/DD',
+    monthYearLabel: 'YYYY MMM',
+    dateA11yLabel: 'YYY/MM/DD',
+    monthYearA11yLabel: 'YYY MMM'
   }
 };
+//export const TW_FORMATS = {
+//  parse: {
+//    dateInput: 'YYYY/MM/DD'
+//  },
+//  display: {
+//    dateInput: 'input',
+//    monthYearLabel: 'monthYearLabel',
+//    dateA11yLabel: 'input',
+//    monthYearA11yLabel: 'monthYearLabel'
+//  }
+//};
 
 @NgModule({
   declarations: [ //宣告component
@@ -132,7 +132,7 @@ export const TW_FORMATS = {
     //moment.js 全域格式化日期語系
     { provide: MAT_DATE_LOCALE, useValue: 'zh-TW' },
     { provide: MAT_DATE_FORMATS, useValue: TW_FORMATS },
-    { provide: DateAdapter, useClass: TwDateAdapter },
+    //{ provide: DateAdapter, useClass: TwDateAdapter },
     //{ provide: MatDatepickerIntl, useClass: MyCalendarIntl }
   ],
   //entryComponents 注入動態產生元件
