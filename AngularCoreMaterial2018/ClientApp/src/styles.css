@@ -6,3 +6,12 @@
 /*@import "~@angular/material/_theming.scss";*/
 
 /*@import '../src/themes/Custom-theme.scss';*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(0,0,0,.03);
+  padding: 20px;
+  font-family: sans-serif;
+}

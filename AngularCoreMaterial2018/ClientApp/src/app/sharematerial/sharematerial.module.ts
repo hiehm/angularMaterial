@@ -16,6 +16,7 @@ import {
   MAT_DATE_FORMATS,
   DateAdapter,
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter'; //datePicker格式化套件
 import { AmazingTimePickerModule } from 'amazing-time-picker'; //datetimePicker地三方套件
@@ -86,6 +87,7 @@ export const TW_FORMATS = {
     MatTabsModule, //Tab 標籤
     MatSortModule, //Sort 排序
     MatPaginatorModule,
+    DragDropModule, //DragDrop 拖拉
     FlexLayoutModule, //FlexLayout
     AmazingTimePickerModule //DateTimePicker地三方套件
   ],
@@ -123,6 +125,7 @@ export const TW_FORMATS = {
     MatTabsModule,
     MatSortModule,
     MatPaginatorModule,
+    DragDropModule,
     PortalModule,
     FlexLayoutModule,
     AmazingTimePickerModule

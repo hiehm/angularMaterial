@@ -12,21 +12,6 @@
     <div id="navbarNav" class='navbar-collapse collapse p-0' [ngClass]='{ "in": isExpanded }'>
       <ul class='nav navbar-nav flex-column'>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a [routerLink]='["/"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-home'></span> Home
-          </a>
-        </li>
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/counter"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-sort-amount-up'></span> Counter
-          </a>
-        </li>
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/fetch-data"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-database'></span> Fetch data
-          </a>
-        </li>
-        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/material-element"]' class="nav-link" (click)='collapse()'>
             <!--<i class="material-icons">
       web
@@ -103,6 +88,11 @@
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/cdk-dynamic-component"]' class="nav-link" (click)='collapse()'>
             <mat-icon>flip_to_front</mat-icon>Cdk-dynamic-component <!--MatChipsModule-->
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/cdk-drag-drop"]' class="nav-link" (click)='collapse()'>
+            <mat-icon>flip_to_front</mat-icon>Cdk-drag-drop <!--CDKdragdrop-->
           </a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
