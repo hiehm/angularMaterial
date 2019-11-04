@@ -58,7 +58,7 @@ export class CdkDragDropComponent implements AfterViewInit{
     });
   }
 
-  dropListDropped() {
+  dropListDropped(e:any) {
     if (!this.target)
       return;
 
