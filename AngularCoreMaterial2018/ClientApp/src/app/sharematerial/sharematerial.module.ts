@@ -11,7 +11,7 @@ import {
   MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule,
   MatChipsModule, MatTooltipModule, MatSnackBarModule,
   MatTableModule, MatSortModule, MatPaginatorModule,
-  MatExpansionModule, MatTabsModule,
+  MatExpansionModule, MatTabsModule, MatBadgeModule,
   MAT_DATE_LOCALE, //provide 日期語系格式化
   MAT_DATE_FORMATS,
   DateAdapter,
@@ -57,6 +57,7 @@ export const TW_FORMATS = {
     MatButtonModule,
     MatIconModule, //<mat-icon>IconName</mat-icon>語意化Icons  
     MatButtonToggleModule,  //群組Button開關控制
+    MatBadgeModule, //Badge元素浮動標記
     MatRippleModule,//漣漪效果    
     MatSidenavModule, //介面切割 <mat-sidenav-container> <mat-sidenav> <mat-sidenav-content>
     MatToolbarModule, //ToolBar
@@ -93,6 +94,7 @@ export const TW_FORMATS = {
   ],
   exports: [
     MatButtonModule,
+    MatBadgeModule,
     MatIconModule,
     MatButtonToggleModule,
     MatRippleModule,

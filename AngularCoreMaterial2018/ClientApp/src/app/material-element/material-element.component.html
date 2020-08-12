@@ -44,6 +44,17 @@
 <button mat-mini-fab disabled>
   <mat-icon>thumb_up</mat-icon>
 </button>
+<p>
+  <!--matBadgeColor:設定標記背景顏色-->
+  <!--matBadgePosition:設定標記位置-->
+  <!--matBadgeOverlap:設定是否停駐於元素文字之上-->
+  <!--matBadgeSize:設定標記大小-->
+  <!--[matBadgeHidden]:設定標記是否顯示或隱藏-->
+  <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon><br />
+  <mat-icon matBadge="8" matBadgePosition="before" matBadgeColor="accent">home</mat-icon><br />
+  <span matBadge="4" matBadgeOverlap="false">Text with a badge</span><br />
+  <mat-icon style="cursor:pointer;" matBadgeSize="large" matBadge="8" [matBadgeHidden]="badgeHidden" (click)="toggleBadgeVisiable()">home</mat-icon><br />
+</p>
 <hr />
 <h3>群組開關-單選</h3>
 <mat-button-toggle-group #formatAlignGroup="matButtonToggleGroup">
@@ -80,4 +91,5 @@
   </mat-button-toggle>
 </mat-button-toggle-group>
 <div>粗體：{{ buttonToggleBold.checked }}、斜體：{{ buttonToggleItalic.checked }}、底線：{{ buttonToggleUnderlined.checked }}</div>
+
 
