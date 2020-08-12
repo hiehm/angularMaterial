@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';  //避免XSS攻擊問�
   styleUrls: ['./material-element.component.css']
 })
 export class MaterialElementComponent implements OnInit {
+  badgeHidden: boolean = true;
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
   }
 
@@ -21,5 +22,9 @@ export class MaterialElementComponent implements OnInit {
     );
     //加入fontAwesome
     this.matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+
+  toggleBadgeVisiable() {
+    this.badgeHidden = !this.badgeHidden;
   }
 }
